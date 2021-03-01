@@ -4,6 +4,7 @@ neofetch
 
 source .ssh-aliases
 
+alias ohmyzsh="upgrade_oh_my_zsh"
 alias config="git --git-dir=$HOME/.cfg --work-tree=$HOME"
 alias ls="exa -la"
 alias cat="bat"
