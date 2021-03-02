@@ -10,4 +10,5 @@ syntax on
 colorscheme onedark
 
 set number
-
+set noswapfile
+set hidden
