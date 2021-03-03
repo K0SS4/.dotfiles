@@ -1,0 +1,25 @@
+Config { font = "xft:Ubuntu:weight=bold:pixelsize=14:antialias=true:hinting=true"
+       , additionalFonts = ["xft:Mononoki Nerd Font:pixelsize=14:antialias=true:hinting=true"]
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#45484f"
+       , fgColor = "#45484f"
+       , alpha = 255
+       , position = Static { xpos=0, ypos=50, width=1920, height=30}
+       , lowerOnStart = True
+       , persistent = False
+       , hideOnStart = False
+       , allDesktops = True
+       , commands = [ 
+		      Run Date "%b %d %Y - %H:%M" "date" 10
+		    , Run Cpu ["-t", "<fn=1>\xf108</fn>  CPU: (<total>%)","-H","50","--high","red"] 20
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%cpu% | %memory% * %swap% | %enp24s0% }\
+                    \{ <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
+       }
