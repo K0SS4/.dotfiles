@@ -521,7 +521,8 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
     {'wmclass': 'galculator'},
     {'wmclass': 'soffice'},
-    {'wname': 'Friends List'}
+    {'wname': 'Friends List'},
+    {'wmclass': 'VirtualBox Machine'}
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
