@@ -3,6 +3,7 @@
 import os
 import subprocess
 
+from libqtile import qtile
 from libqtile import hook
 from typing import List  # noqa: F401
 from libqtile import bar, layout, widget
@@ -83,12 +84,12 @@ keys = [
             lazy.layout.shuffle_up(),
             desc='Move windows up in current stack'
             ),
-        Key([mod], "h",
+        Key([mod], "l",
             lazy.layout.grow(),
             lazy.layout.increase_nmaster(),
             desc='Expand window (MonadTall), increase number in master pane (Tile)'
             ),
-        Key([mod], "l",
+        Key([mod], "h",
             lazy.layout.shrink(),
             lazy.layout.decrease_nmaster(),
             desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
@@ -281,14 +282,21 @@ screens = [
                 ),
                 widget.Image(
                     filename='~/.config/qtile/icons/update.png',
-                    background=color[0][0]
+                    background=color[0][0],
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')}
+                ),
+                widget.TextBox(
+                    text="Updates:",
+                    background=color[0][0],
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')}
                 ),
                 widget.CheckUpdates(
-                    distro='Arch',
-                    no_update_string='None',
+                    distro='Arch_checkupdates', #pacman-contrib needed
+                    no_update_string='0',
                     display_format='{updates}',
-                    update_interval=300,
-                    background=color[0][0]
+                    update_interval=1800,
+                    background=color[0][0],
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')}
                 ),
                 widget.TextBox(
                     text="⚈",
@@ -521,7 +529,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
     {'wmclass': 'galculator'},
     {'wmclass': 'soffice'},
-    {'wname': 'Friends List'},
+    {'wname': 'Friends List'},  #Steam firends list
     {'wmclass': 'VirtualBox Machine'}
 ])
 auto_fullscreen = True
