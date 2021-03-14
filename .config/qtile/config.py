@@ -283,12 +283,12 @@ screens = [
                 widget.Image(
                     filename='~/.config/qtile/icons/update.png',
                     background=color[0][0],
-                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')}
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
                 ),
                 widget.TextBox(
                     text="Updates:",
                     background=color[0][0],
-                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')}
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
                 ),
                 widget.CheckUpdates(
                     distro='Arch_checkupdates', #pacman-contrib needed
@@ -296,7 +296,7 @@ screens = [
                     display_format='{updates}',
                     update_interval=1800,
                     background=color[0][0],
-                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')}
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
                 ),
                 widget.TextBox(
                     text="⚈",
