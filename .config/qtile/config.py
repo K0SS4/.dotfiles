@@ -12,14 +12,14 @@ from libqtile.lazy import lazy
 from re import sub
 
 mod = "mod4" # Windows key
-terminal = "alacritty"
+terminal = "kitty"
 #_wallpaper='~/.images/fash1.jpg'
 #_wallpaper_mode = 'fill'
 
 keys = [
         ### My launchers ###
         Key(["control", "shift"], "q",
-            lazy.spawn("code /home/k0ss4/.config/qtile/config.py"),
+            lazy.spawn("kitty -e nvim /home/k0ss4/.config/qtile/config.py"),
             desc='Launches Code with config.py'
             ),
         Key([], "Print",

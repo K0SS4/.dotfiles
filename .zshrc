@@ -27,7 +27,7 @@ source $ZSH/oh-my-zsh.sh
 
 #My aliases
 
-source .ssh-aliases
+#source .ssh-aliases
 
 alias ohmyzsh="upgrade_oh_my_zsh"
 alias config="git --git-dir=$HOME/.cfg --work-tree=$HOME"
