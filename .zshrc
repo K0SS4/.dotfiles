@@ -40,7 +40,10 @@ alias s="git status"
 alias a="git add"
 alias c="git commit -m"
 alias pom="git push origin main"
-alias geoip="/home/k0ss4/./.geoip.sh"
+
+function geoip {
+	curl https://ipapi.co/$1/$2/
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
