@@ -14,6 +14,7 @@ fi
 export MANPAGER="nvim -c 'set ft=man' -"
 export TERM="xterm-256color"
 export ZSH="/home/k0ss4/.oh-my-zsh"
+export PATH="${PATH}:/home/k0ss4/.emacs.d/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -27,7 +28,7 @@ source $ZSH/oh-my-zsh.sh
 
 #My aliases
 
-#source .ssh-aliases
+source .ssh-aliases
 
 alias ohmyzsh="upgrade_oh_my_zsh"
 alias config="git --git-dir=$HOME/.cfg --work-tree=$HOME"
@@ -39,6 +40,7 @@ alias s="git status"
 alias a="git add"
 alias c="git commit -m"
 alias pom="git push origin main"
+alias geoip="/home/k0ss4/./.geoip.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

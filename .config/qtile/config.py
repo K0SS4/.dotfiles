@@ -35,7 +35,7 @@ keys = [
             desc='Launches My Terminal'
             ),
         Key([mod, "shift"], "Return",
-            lazy.spawn("rofi -show drun -config -display-drun \"Run: \" -drun-display-format \"{name}\""),
+            lazy.spawn("rofi -show drun -show-icons -display-drun \"Run: \" -drun-display-format \"{name}\""),
             desc='Run Launcher'
             ),
         Key([mod], "Tab",
@@ -528,7 +528,6 @@ floating_layout = layout.Floating(float_rules=[
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
     {'wmclass': 'galculator'},
-    {'wmclass': 'soffice'},
     {'wname': 'Friends List'},  #Steam firends list
     {'wmclass': 'VirtualBox Machine'}
 ])
