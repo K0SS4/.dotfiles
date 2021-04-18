@@ -34,12 +34,11 @@ alias ohmyzsh="upgrade_oh_my_zsh"
 alias config="git --git-dir=$HOME/.cfg --work-tree=$HOME"
 alias ls="exa -la"
 alias cat="bat"
-alias startam="sudo systemctl start httpd && sudo systemctl start mysqld"
-alias stopam="sudo systemctl stop httpd && sudo systemctl stop mysqld"
 alias s="git status"
 alias a="git add"
 alias c="git commit -m"
 alias pom="git push origin main"
+alias cronlog="sudo journalctl | grep CRON"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/
