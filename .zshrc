@@ -1,4 +1,11 @@
-neofetch
+#Pfetch config
+export PF_SEP=":"
+export PF_COL1=2
+export PF_COL2=7
+export PF_COL3=4
+export PF_ALIGN="8"
+
+/home/k0ss4/.pfetch/./pfetch
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
