@@ -39,6 +39,7 @@ alias a="git add"
 alias c="git commit -m"
 alias pom="git push origin main"
 alias cronlog="sudo journalctl | grep CRON"
+alias crontab="EDITOR=nvim crontab -e"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/
