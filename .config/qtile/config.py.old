@@ -154,11 +154,11 @@ layouts = [
     ),
     layout.Columns(border_focus_stack='#d75f5f'),
     layout.Max(),    
-    layout.MonadWide(),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
+    # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
@@ -191,14 +191,16 @@ def kernel_version():
     return output
 
 ### Colors array ###
-color = [['3b0066', '3b0066'], #Panel background
+color = [['0a3f94', '4287f5'], #Left panel widgets background
          ['ffffff', 'ffffff'], #GroupBox font
-         ['420070', '420070'], #GroupBox highlight background
-         ['892bff', '892bff']] #GroupBox background
+         ['0a3f94', '0a3f94'], #GroupBox highlight background
+         ['4287f5', '4287f5'], #GroupBox background
+         ['353536', '353536']] #Panel background
 
 widget_defaults = dict(
     font='Ubuntu',
-    fontsize=14
+    fontsize=14,
+    padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -227,8 +229,7 @@ screens = [
                     highlight_method='line',
                     margin_x=8,
                     fontsize=12,
-                    font="Ubuntu Bold",
-                    padding=5
+                    font="Ubuntu Bold"
                 ),
                 widget.Spacer(
                     length=20
@@ -252,77 +253,118 @@ screens = [
                     padding_x=5,
                     padding_y=8,
                     margin_y=0,
-                    fontsize=15,
+                    fontsize=15
                 ),                
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][1],
+                    padding=0,
+                    fontsize=45
+                ),
                 widget.Image(
                     filename='~/.config/qtile/icons/tux.png',
+                    background=color[0][1]
                 ),
                 widget.GenPollText(
+                    background=color[0][1],
                     fontsize=15,
                     func=kernel_version,
-                    update_interval=20,
-                    padding=5 
+                    update_interval=20
                 ),
-                widget.Sep(
-                    padding=20,
-                    linewidth=3,
-                    foreground="2f174d",
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    background=color[0][1],
+                    foreground=color[0][0],
+                    padding=0,
+                    fontsize=45
                 ),
                 widget.Image(
                     filename='~/.config/qtile/icons/update.png',
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
+                    background=color[0][0],
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
                 ),
                 widget.TextBox(
                     text="Updates:",
-                    padding=0,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
+                    background=color[0][0],
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
                 ),
                 widget.CheckUpdates(
                     distro='Arch_checkupdates', #pacman-contrib needed
-                    no_update_string=' 0',
+                    no_update_string='0',
                     display_format='{updates}',
                     update_interval=1800,
-                    padding=3,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
+                    background=color[0][0],
+                    mouse_callbacks= {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
                 ),
-                widget.Sep(
-                    padding=20,
-                    linewidth=3,
-                    foreground="2f174d",
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][1],
+                    background=color[0][0],
+                    padding=0,
+                    fontsize=45
                 ),
                 widget.TextBox(
                     text='Vol:',
-                    padding=0
+                    background=color[0][1]
                 ),
                 widget.Volume(
                     device='pulse',
-                    padding=3
-                ),   
-                widget.Sep(
-                    padding=20,
-                    linewidth=3,
-                    foreground="2f174d",
+                    background=color[0][1]
+                ),
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][0],
+                    background=color[0][1],
+                    padding=0,
+                    fontsize=45
+                ),
+                widget.Spacer(
+                    linewidth=0,
+                    length=5,
+                    background=color[0][0]
                 ),
                 widget.Systray(
                     icon_size=22,
                     padding=7,
+                    background=color[0][0]
                 ),
-                widget.Sep(
-                    padding=20,
-                    linewidth=3,
-                    foreground="2f174d",
+                widget.Spacer(
+                    linewidth=0,
+                    length=5,
+                    background=color[0][0]
+                ),
+                widget.Spacer(
+                    length=10,
+                    background=color[0][0]
+                ),
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][1],
+                    background=color[0][0],
+                    padding=0,
+                    fontsize=45
                 ),
                 widget.Image(
                     filename='~/.config/qtile/icons/time.png',
+                    background=color[0][1]
                 ),
                 widget.Clock(
                     format='%d.%m %A %H:%M',
-                    padding=5
+                    background=color[0][1]    
                 ),
+                widget.Sep(
+                    linewidth=0,
+                    background=color[0][1]
+                )
             ],
             30,
-            background=color[0],
-            opacity=0.9
+            background=color[4],
+            opacity=0.8
         ),
     ),
 
@@ -374,66 +416,90 @@ screens = [
                     margin_y=0,
                     fontsize=15
                 ),
+                widget.Spacer(),
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][1],
+                    padding=0,
+                    fontsize=45
+                ),
                 widget.Image(
-                    filename='~/.config/qtile/icons/power.png'
+                    filename='~/.config/qtile/icons/power.png',
+                    background=color[0][1]
                 ),
                 widget.TextBox(
                     text='Power: ',
-                    padding=2
+                    background=color[0][1],
                 ),
                 widget.GenPollText(
+                    background=color[0][1],
                     func=get_my_power,
-                    update_interval=2,
-                    padding=0
+                    update_interval=2,                    
                 ),
-                widget.Sep(
-                    padding=20,
-                    linewidth=3,
-                    foreground="2f174d",
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][0],
+                    background=color[0][1],
+                    padding=0,
+                    fontsize=45
                 ),
                 widget.Image(
-                    filename='~/.config/qtile/icons/display.png'
+                    filename='~/.config/qtile/icons/display.png',
+                    background=color[0][0]
                 ),
                 widget.TextBox(
                     text=" GPU: ",
-                    padding=4
+                    background=color[0][0]
                 ),
                 widget.GenPollText(
+                    background=color[0][0],
                     func=get_my_gpu_temp,
-                    update_interval=2,
-                    padding=2
+                    update_interval=2
                 ),
-                widget.Sep(
-                    padding=20,
-                    linewidth=3,
-                    foreground="2f174d",
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][1],
+                    background=color[0][0],
+                    padding=0,
+                    fontsize=45
                 ),
                 widget.Image(
-                    filename='~/.config/qtile/icons/cpu.png'
+                    filename='~/.config/qtile/icons/cpu.png',
+                    background=color[0][1]
                 ),
                 widget.CPU(
+                    background=color[0][1],
                     font='Ubuntu',
-                    padding=5,
+                    padding=10,
                     format='CPU {freq_current}GHz   {load_percent}%'
                 ),
                 widget.ThermalSensor(
+                    background=color[0][1],
                     tag_sensor='Tdie'
                 ),
-                widget.Sep(
-                    padding=20,
-                    linewidth=3,
-                    foreground="2f174d",
+                widget.TextBox(
+                    text="⚈",
+                    width=15,
+                    foreground=color[0][0],
+                    background=color[0][1],
+                    padding=0,
+                    fontsize=45
                 ),
                 widget.Image(
-                    filename='~/.config/qtile/icons/ram.png'
+                    filename='~/.config/qtile/icons/ram.png',
+                    background=color[0][0],
                 ),
                 widget.Memory(
+                    background=color[0][0],
                     padding=10
                 )
             ],
             30,
-            background=color[0],
-            opacity=0.9
+            background=color[4],
+            opacity=0.8
         ),
     ),
 ]
