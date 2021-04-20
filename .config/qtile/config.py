@@ -305,7 +305,7 @@ screens = [
                 ),
                 widget.Systray(
                     icon_size=22,
-                    padding=7,
+                    padding=0,
                 ),
                 widget.Sep(
                     padding=20,
