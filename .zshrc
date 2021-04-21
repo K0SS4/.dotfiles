@@ -32,6 +32,7 @@ export PATH="${PATH}:/home/k0ss4/.emacs.d/bin"
 plugins=(git archlinux zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+export ZSH_COMPDUMP="/home/$USER/.cache/zsh/zcompdump"
 
 #My aliases
 
