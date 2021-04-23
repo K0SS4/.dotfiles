@@ -1,8 +1,8 @@
 #Pfetch config
 export PF_SEP=":"
-export PF_COL1=2
-export PF_COL2=7
-export PF_COL3=4
+export PF_COL1=4
+export PF_COL2=4
+export PF_COL3=2
 export PF_ALIGN="8"
 
 /home/k0ss4/.pfetch/./pfetch
@@ -52,8 +52,5 @@ alias crontab="EDITOR=nvim crontab -e"
 function geoip {
 	curl https://ipapi.co/$1/$2/
 }
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(starship init zsh)"
