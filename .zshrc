@@ -5,8 +5,8 @@ export PF_COL2=4
 export PF_COL3=2
 export PF_ALIGN="8"
 
-/home/k0ss4/.pfetch/./pfetch
-
+#/home/k0ss4/.pfetch/./pfetch
+colorscript -r
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
