@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+temp="$(sensors | grep Tdie | awk -F '+' '{ print $2 }')"
+echo $temp

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+toggle="$(amixer -D pulse sget Master | grep 'Left:' | awk -F '[][]' '{ print $4 }')"
+if [ $toggle = 'off' ]
+then
+	volume="M"
+else
+	volume="$(amixer -D pulse sget Master | grep 'Left:' | awk -F '[][]' '{ print $2 }')"
+fi
+echo $volume

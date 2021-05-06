@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+aur="$(paru -Qua | wc -l)"
+repos="$(checkupdates | wc -l)"
+echo "$((aur+repos))"
+

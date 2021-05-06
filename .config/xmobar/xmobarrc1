@@ -1,0 +1,35 @@
+-- http://projects.haskell.org/xmobar/
+-- I use Font Awesome 5 fonts in this config for unicode "icons".  On Arch Linux,
+-- install this package from the AUR to get these fonts: otf-font-awesome-5-free
+
+Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+                           ]
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , position = Static { xpos = 1920 , ypos = 350, width = 2560, height = 24 }
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , commands = [
+                    -- Time and date
+                      Run Date "<fn=2></fn>  %d/%m/%Y - (%H:%M) " "date" 50
+                      -- Network up and down
+                    , Run Network "enp24s0" ["-t", "<fn=2></fn>  <rx>kb <tx>kb"] 20
+                      -- Ram used number and percent
+                    , Run Com "/home/k0ss4/.config/xmobar/scripts/updates" [] "pacupdate" 36000
+                      -- Runs a standard shell command 'uname -r' to get kernel version
+                    , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 3600
+                      -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com "/home/k0ss4/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
+                      -- Prints out the left side items such as workspaces, layout, etc.
+		    , Run Com "/home/k0ss4/.config/xmobar/scripts/volume" [] "vol" 1
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %UnsafeStdinReader% }{ <fc=#b3afc2><fn=3></fn> %uname% </fc> <fc=#666666>|</fc> <fc=#98be65> <fn=2></fn> Vol: %vol% </fc> <fc=#666666>|</fc> <fc=#98be65> %enp24s0% </fc> <fc=#666666>|</fc> <fc=#c678dd><fn=2></fn> <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#666666>|</fc> <fc=#46d9ff> %date% </fc><fc=#666666><fn=1>|</fn></fc> %trayerpad%" }
+
