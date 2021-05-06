@@ -184,7 +184,7 @@ def get_my_power():
 
 ### Kernel version ###
 def kernel_version():
-    p = subprocess.Popen("uname -r | sed 's/-zen1-1-zen/ /'", stdout=subprocess.PIPE, shell=True)
+    p = subprocess.Popen("uname -r | sed 's/-zen2-1-zen/ /'", stdout=subprocess.PIPE, shell=True)
 
     output,err = p.communicate()
     output="\n"+output.decode("utf-8")

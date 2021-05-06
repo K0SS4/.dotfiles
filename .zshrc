@@ -48,6 +48,7 @@ alias c="git commit -m"
 alias pom="git push origin main"
 alias cronlog="sudo journalctl | grep CRON"
 alias crontab="EDITOR=nvim crontab -e"
+alias backdwm="/opt/dwm/./backup.sh"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/
