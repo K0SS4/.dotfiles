@@ -1,13 +1,12 @@
 Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 5 Free Solid:pixelsize=16,"
        , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=20:antialias=true:hinting=true"
-                           , "xft:Font Awesome 5 Brands:pixelsize=16"
-                           ]
+                           , "xft:Font Awesome 5 Brands:pixelsize=16" ]
        , bgColor = "#282c34"
+       , alpha = 120
        , fgColor = "#ff6c6b"
        , position = Static { xpos = 1920 , ypos = 350, width = 2560, height = 24 }
        , lowerOnStart = True
        , hideOnStart = False
-       , allDesktops = True
        , persistent = True
        , commands = [
                       Run Date "%d/%m/%Y - (%H:%M) " "date" 50
@@ -20,5 +19,5 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }  %date%{ <fc=#b3afc2><fn=2></fn> %uname% </fc> <fc=#666666>|</fc> <fc=#98be65>  Vol: %vol% </fc> <fc=#666666>|</fc> <fc=#98be65>   %enp24s0% </fc> <fc=#666666>|</fc> <fc=#c678dd>   <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#666666>|</fc> %trayerpad%" }
+       , template = " %StdinReader% }  %date%{ <fn=2></fn> %uname% <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  Vol: %vol% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>   %enp24s0% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>   <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#ffffff><fn=1>|</fn></fc> %trayerpad%" }
 
