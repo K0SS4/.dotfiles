@@ -123,8 +123,8 @@ myTabTheme = def { fontName            = myFont
 -- Theme for showWName which prints current workspace when you change workspaces.
 myShowWNameTheme :: SWNConfig
 myShowWNameTheme = def
-    { swn_font              = "xft:Ubuntu:bold:size=60"
-    , swn_fade              = 1.0
+    { swn_font              = "xft:Font Awesome 5 Free Solid:size=100"
+    , swn_fade              = 0.8
     , swn_bgcolor           = "#1c1f24"
     , swn_color             = "#ffffff"
     }
@@ -139,7 +139,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| noBorders tabs
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaces = [" WWW ", " DEV ", " SYS ", " DOC ", " FUN ", " MSC "]
+myWorkspaces = ["  \xf7a2  ", "  \xf120  ", "  \xf013  ", "  \xf1c2  ", "  \xf11b  ", "  \xf0eb  "]
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
@@ -245,13 +245,13 @@ main = do
               -- the following variables beginning with 'pp' are settings for xmobar.
               { ppOutput = \x -> hPutStrLn xmproc0 x                          -- xmobar on monitor 1
                               >> hPutStrLn xmproc1 x                          -- xmobar on monitor 2
-              , ppCurrent = xmobarColor "#98be65" "" . wrap "(" ")"           -- Current workspace
+              , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace
               , ppVisible = xmobarColor "#98be65" ""                          -- Visible but not current workspace
               , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" ""             -- Hidden workspaces
               , ppHiddenNoWindows = xmobarColor "#c792ea" ""                  -- Hidden workspaces (no windows)
-              , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
-              , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
+              , ppTitle = const ""                                            -- Title of active window
+              , ppTitleSanitize = const ""
+              , ppSep =  "<fc=#666666><fn=1>|</fn> </fc>"                    -- Separator character
               , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
-              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
               }
         } `additionalKeysP` myKeys

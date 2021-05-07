@@ -1,7 +1,6 @@
-Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
-                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
-                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 5 Free Solid:pixelsize=16,"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=20:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Brands:pixelsize=16"
                            ]
        , bgColor = "#282c34"
        , fgColor = "#ff6c6b"
@@ -17,9 +16,9 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 3600
                     , Run Com "/home/k0ss4/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
 		    , Run Com "/home/k0ss4/.config/xmobar/scripts/volume" [] "vol" 1
-                    , Run UnsafeStdinReader
+                    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %UnsafeStdinReader% }<fn=2></fn> %date%{ <fc=#b3afc2><fn=3></fn> %uname% </fc> <fc=#666666>|</fc> <fc=#98be65> <fn=2></fn> Vol: %vol% </fc> <fc=#666666>|</fc> <fc=#98be65><fn=2></fn> %enp24s0% </fc> <fc=#666666>|</fc> <fc=#c678dd><fn=2></fn> <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#666666>|</fc> %trayerpad%" }
+       , template = " %StdinReader% }  %date%{ <fc=#b3afc2><fn=2></fn> %uname% </fc> <fc=#666666>|</fc> <fc=#98be65>  Vol: %vol% </fc> <fc=#666666>|</fc> <fc=#98be65>   %enp24s0% </fc> <fc=#666666>|</fc> <fc=#c678dd>   <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#666666>|</fc> %trayerpad%" }
 

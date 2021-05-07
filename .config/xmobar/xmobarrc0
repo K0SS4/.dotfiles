@@ -1,6 +1,5 @@
-Config { font    = "xft:Ubuntu:weight=bold:pixelsize=14:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
-       			   , "xft:Font Awesome 5 Free Solid:pixelsize=15" ]
+Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 5 Free Solid:fontsize=16"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=20:antialias=true:hinting=true" ]
        , bgColor = "#282c34"
        , fgColor = "#ff6c6b"
        , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 }
@@ -13,10 +12,10 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=14:antialias=true:hinting=t
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/cputemp" [] "cputemp" 20
 		    , Run Com "/home/k0ss4/.config/xmobar/scripts/gputemp" [] "gputemp" 20
 		    , Run Com "/home/k0ss4/.power.sh" [] "power" 20
-                    , Run UnsafeStdinReader
+                    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %UnsafeStdinReader% }{ <fc=#43f5ff> <fn=2></fn> Power: %power%</fc> <fc=#666666>|</fc> <fc=#ecbe7b> <fn=2></fn> GPU: %gputemp%</fc> <fc=#666666>|</fc> <fc=#ecbe7b> <fn=2></fn> CPU: %cputemp%</fc> <fc=#666666>|</fc> <fc=#ff6c6b> <fn=2></fn> %memory%</fc>"
+       , template = " %StdinReader% }{ <fc=#43f5ff>  Power: %power% </fc> <fc=#666666>|</fc> <fc=#ecbe7b>  GPU: %gputemp% </fc> <fc=#666666>|</fc> <fc=#ecbe7b>  CPU: %cputemp% </fc> <fc=#666666>|</fc> <fc=#ff6c6b>  %memory%</fc>"
        }
 
