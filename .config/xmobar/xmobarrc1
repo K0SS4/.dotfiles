@@ -2,7 +2,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
        , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=20:antialias=true:hinting=true"
                            , "xft:Font Awesome 5 Brands:pixelsize=16" ]
        , bgColor = "#282c34"
-       , alpha = 120
+       , alpha = 200
        , fgColor = "#ff6c6b"
        , position = Static { xpos = 1920 , ypos = 350, width = 2560, height = 24 }
        , lowerOnStart = True

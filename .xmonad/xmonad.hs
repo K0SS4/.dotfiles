@@ -195,7 +195,7 @@ myKeys =
         , ("M-S-q", io exitSuccess)              -- Quits xmonad
         , ("S-<F4>", spawn "poweroff")
     -- Run Prompt
-        , ("M-S-<Return>", spawn "dmenu_run -i -p \"Run: \"") -- Dmenu
+        , ("M-S-<Return>", spawn "rofi -show drun") -- Dmenu
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
