@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-ver="$(uname -r | awk -F '-' '{ print $1 }')"
-echo $ver
+echo "$(uname -r | awk -F '-' '{ print $1 }')"

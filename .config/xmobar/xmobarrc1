@@ -11,10 +11,10 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
        , commands = [
                       Run Date "%d/%m/%Y - (%H:%M) " "date" 50
                     , Run Network "enp24s0" ["-t", "<rx>kb <tx>kb"] 20
-                    , Run Com "/home/k0ss4/.config/xmobar/scripts/updates" [] "pacupdate" 36000
-                    , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 3600
+                    , Run Com "/home/k0ss4/.config/xmobar/scripts/updates" [] "pacupdate" 18000
+                    , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 18000
                     , Run Com "/home/k0ss4/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
-		    , Run Com "/home/k0ss4/.config/xmobar/scripts/volume" [] "vol" 1
+		    , Run Com "/home/k0ss4/.config/xmobar/scripts/volume" [] "vol" 5
                     , Run StdinReader
                     ]
        , sepChar = "%"

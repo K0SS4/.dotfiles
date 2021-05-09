@@ -48,6 +48,7 @@ alias c="git commit -m"
 alias pom="git push origin main"
 alias cronlog="sudo journalctl | grep CRON"
 alias crontab="EDITOR=nvim crontab -e"
+alias remove="udisksctl power-off -b"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/
