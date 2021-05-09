@@ -19,6 +19,8 @@ import XMonad.Actions.WithAll (sinkAll, killAll)
 
 -- Data
 import Data.Monoid
+import Data.Maybe (fromJust)
+import qualified Data.Map as M
 
 -- Hooks
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
@@ -155,7 +157,10 @@ myShowWNameTheme = def
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 myWorkspaces = ["  \xf7a2  ", "  \xf120  ", "  \xf013  ", "  \xf1c2  ", "  \xf11b  ", "  \xf0eb  "]
+myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..]
 
+clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
+    where i = fromJust $ M.lookup ws myWorkspaceIndices
 ----------------------------------------
 --------------MANAGE HOOK---------------
 ----------------------------------------
@@ -167,6 +172,7 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
      [ className =? "confirm"         --> doFloat
+icho $volume
      , className =? "file_progress"   --> doFloat
      , className =? "Galculator"      --> doFloat
      , className =? "dialog"          --> doFloat
@@ -273,12 +279,12 @@ main = do
               { ppOutput = \x -> hPutStrLn xmproc0 x                          -- xmobar on monitor 1
                               >> hPutStrLn xmproc1 x                          -- xmobar on monitor 2
               , ppCurrent = xmobarColor "#96b869" "" . wrap "[" "]"           -- Current workspace
-              , ppVisible = xmobarColor "#96b869" ""                          -- Visible but not current workspace
-              , ppHidden = xmobarColor "#dfe683" "" . wrap "*" ""             -- Hidden workspaces
-              , ppHiddenNoWindows = xmobarColor "#e6a80b" ""                  -- Hidden workspaces (no windows)
+              , ppVisible = xmobarColor "#96b869" "" . clickable              -- Visible but not current workspace
+              , ppHidden = xmobarColor "#dfe683" "" . wrap "*" "" . clickable -- Hidden workspaces
+              , ppHiddenNoWindows = xmobarColor "#e6a80b" "" . clickable      -- Hidden workspaces (no windows)
               , ppTitle = const ""                                            -- Title of active window
               , ppTitleSanitize = const ""
-              , ppSep =  "<fc=#ffffff><fn=1>|</fn> </fc>"                    -- Separator character
+              , ppSep =  "<fc=#ffffff><fn=1>|</fn> </fc>"                     -- Separator character
               , ppUrgent = xmobarColor "#ff0000" "" . wrap "!" "!"            -- Urgent workspace
               }
         } `additionalKeysP` myKeys

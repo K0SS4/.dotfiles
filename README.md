@@ -1,4 +1,4 @@
-# My custom GNU/Linux dotfiles
+# My custom Arch Linux dotfiles
 
 This is my personal setup. If you want to use it you can of course do that but I don't take any responsibility if anything bad happens(it shouldn't tho).
 
@@ -26,6 +26,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - lm_sensors (for CPU temperature)
 - trayer (systray)
 - sxiv (for images preview when clicking M-xK_`<F1>`)
+- xdotool (for clickable workspaces)
 - Ubuntu font family (xmobar font)
 - Font Awesome 5 Free (icons in the xmobar)
 - Font Awesome 5 Brands (tux logo in the xmobar)
@@ -34,7 +35,9 @@ This is my personal setup. If you want to use it you can of course do that but I
 I hope i did not forget about something. You will probably have adjust my xmobar scripts for example:  
 - the kernel script is written for zen kernel specifically,  
 - the gputemp script is written for nvidia-smi,  
-- the cputemp script should be fine but idk.  
+- the cputemp script should be fine but idk,  
+- the updates script is written for arch specifically(and for paru as an aur helper),  
+- the volume script is written for pulseaudio with alsa  
 You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.
 
 Also the xmobar position is set statically so don't forget to take care of that.

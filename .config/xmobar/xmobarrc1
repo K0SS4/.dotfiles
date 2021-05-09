@@ -15,9 +15,9 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 18000
                     , Run Com "/home/k0ss4/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
 		    , Run Com "/home/k0ss4/.config/xmobar/scripts/volume" [] "vol" 5
-                    , Run StdinReader
+                    , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }  %date%{ <fn=2></fn> %uname% <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  Vol: %vol% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>   %enp24s0% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>   <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#ffffff><fn=1>|</fn></fc> %trayerpad%" }
+       , template = " %UnsafeStdinReader% }  %date%{ <fn=2></fn> %uname% <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  Vol: %vol% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>   %enp24s0% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>   <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#ffffff><fn=1>|</fn></fc> %trayerpad%" }
 
