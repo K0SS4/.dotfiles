@@ -1,8 +1,8 @@
-#My custom GNU/Linux dotfiles
+# My custom GNU/Linux dotfiles
 
 This is my personal setup. If you want to use it you can of course do that but I don't take any responsibility if anything bad happens(it shouldn't tho).
 
-###Needed dependencies (You'll have to check how to install them on your distro):  
+### Needed dependencies (You'll have to check how to install them on your distro):  
 
 - xmonad(The WM I'm using)  
 - xmonad-contrib(For some of the libraries)  
@@ -11,11 +11,11 @@ This is my personal setup. If you want to use it you can of course do that but I
 - rofi (applications launcher)  
 - shell-color-scripts (for cool looking temrinal. You can grab it from [here](https://gitlab.com/dwt1/shell-color-scripts) )  
 - zsh (shell)  
-- - oh-my-zsh (zsh framework)
-- - - zsh-autosuggestions (for suggestions when you're typing in the terminal)
-- - - zsh-syntax-highlighting (for syntax highlighting when you're typing in the terminal)
+    - oh-my-zsh (zsh framework)
+      - zsh-autosuggestions (for suggestions when you're typing in the terminal)
+      - zsh-syntax-highlighting (for syntax highlighting when you're typing in the terminal)
 - neovim (my text editor)
-- - vim-plug (plugins manager for neovim)
+    - vim-plug (plugins manager for neovim)
 - feh (for wallpaper)
 - network-manager-applet(network manager icon in the systray)
 - volumeicon (Volume icon in the systray)
@@ -35,6 +35,7 @@ I hope i did not forget about something. You will probably have adjust my xmobar
 - the kernel script is written for zen kernel specifically,  
 - the gputemp script is written for nvidia-smi,  
 - the cputemp script should be fine but idk.  
+
 You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.
 
 Also the xmobar position is set statically so don't forget to take care of that.
