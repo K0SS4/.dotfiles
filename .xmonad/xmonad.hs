@@ -172,7 +172,6 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
      [ className =? "confirm"         --> doFloat
-icho $volume
      , className =? "file_progress"   --> doFloat
      , className =? "Galculator"      --> doFloat
      , className =? "dialog"          --> doFloat
