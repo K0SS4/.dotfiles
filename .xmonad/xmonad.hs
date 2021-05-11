@@ -250,7 +250,7 @@ myKeys =
         , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
         , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse set Master 5%+ unmute")
-        , ("<Print>", spawn "xfce4-screenshooter")
+        , ("<Print>", spawn "spectacle -r -b -c")
         ]
 
 ----------------------------------------
