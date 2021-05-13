@@ -30,7 +30,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - network-manager-applet(network manager icon in the systray)
 - volumeicon (Volume icon in the systray)
 - xfce4-clipman-plugin (clipboard manager)
-- spectacle (screenshot utility)
+- flameshot (screenshot utility)
 - picom (compositor)
 - lxsession (polkit)
 

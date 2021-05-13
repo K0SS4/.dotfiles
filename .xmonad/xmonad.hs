@@ -100,6 +100,7 @@ myStartupHook = do
     spawnOnce "xfce4-clipman &"
     spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
     spawnOnce "trayer --edge top --align right --widthtype request --padding 5 --monitor 1 --transparent true --alpha 120 --tint 0x282c34 --height 24 &"
+    spawnOnce "flameshot &"
     setWMName "XMonad"
 
 ----------------------------------------
@@ -250,7 +251,6 @@ myKeys =
         , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
         , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse set Master 5%+ unmute")
-        , ("<Print>", spawn "spectacle -r -b -c")
         ]
 
 ----------------------------------------
