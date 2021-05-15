@@ -25,12 +25,13 @@ This is my personal setup. If you want to use it you can of course do that but I
     - vim-plug (plugins manager for neovim)
 - feh (for wallpaper)
 - sxiv (for images preview when clicking M-`<F1>`)
+- maim (screenshot utility)
+- xclip (for copying selected screenshot area to the clipboard)
 
 #### Autostart
 - network-manager-applet(network manager icon in the systray)
 - volumeicon (Volume icon in the systray)
 - xfce4-clipman-plugin (clipboard manager)
-- flameshot (screenshot utility)
 - picom (compositor)
 - lxsession (polkit)
 
