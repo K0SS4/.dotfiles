@@ -110,7 +110,7 @@ tall     =   renamed [Replace "tall"]
            $ smartBorders
            $ addTabs shrinkText myTabTheme
            $ limitWindows 12
-           $ mySpacing 8
+           $ mySpacing 0
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  =   renamed [Replace "monocle"]
            $ smartBorders
@@ -182,6 +182,7 @@ myManageHook = composeAll
      , className =? "pinentry-gtk-2"  --> doFloat
      , className =? "toolbar"         --> doFloat
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
+     , title =? "Friends List"        --> doFloat -- Steam Friends List
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
