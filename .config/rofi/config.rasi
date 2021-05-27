@@ -1,0 +1,6 @@
+configuration {
+	theme: "~/.config/rofi/themes/dmenu-like.rasi";
+	show-icons: true;
+	display-drun: "Run: ";
+}
+

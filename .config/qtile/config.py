@@ -13,17 +13,15 @@ from re import sub
 
 mod = "mod4" # Windows key
 terminal = "alacritty"
-#_wallpaper='~/.images/fash1.jpg'
-#_wallpaper_mode = 'fill'
 
 keys = [
         ### My launchers ###
         Key(["control", "shift"], "q",
             lazy.spawn(terminal + " -e nvim /home/k0ss4/.config/qtile/config.py"),
-            desc='Launches Code with config.py'
+            desc='Launches qtile config with my editor'
             ),
         Key([], "Print",
-            lazy.spawn("xfce4-screenshooter"),
+            lazy.spawn("bash -c 'maim -s -l --color=1,1,1,0.2 --format png /dev/stdout | xclip -selection clipboard -t image/png -i'"),
             desc='Launches screenshooter'
             ),
         ### The essentials
@@ -35,7 +33,7 @@ keys = [
             desc='Launches My Terminal'
             ),
         Key([mod, "shift"], "Return",
-            lazy.spawn("rofi -show drun -show-icons -display-drun \"Run: \" -drun-display-format \"{name}\""),
+            lazy.spawn("rofi -show drun"),
             desc='Run Launcher'
             ),
         Key([mod], "Tab",
@@ -50,7 +48,7 @@ keys = [
             lazy.restart(),
             desc='Restart Qtile'
             ),
-        Key([mod, "shift"], "F4",
+        Key([mod, "shift"], "q",
             lazy.shutdown(),
             desc='Shutdown Qtile'
             ),
@@ -177,14 +175,14 @@ def get_my_gpu_temp():
 
 ### Power consuption ###
 def get_my_power():
-    p = subprocess.Popen("/home/k0ss4/./.power.sh", stdout=subprocess.PIPE, shell=True)
+    p = subprocess.Popen("~/./.power.sh", stdout=subprocess.PIPE, shell=True)
 
     output,err = p.communicate()
     return output.decode("utf-8")
 
 ### Kernel version ###
 def kernel_version():
-    p = subprocess.Popen("uname -r | sed 's/-zen2-1-zen/ /'", stdout=subprocess.PIPE, shell=True)
+    p = subprocess.Popen("~/.config/qtile/scripts/./kernel", stdout=subprocess.PIPE, shell=True)
 
     output,err = p.communicate()
     output="\n"+output.decode("utf-8")
@@ -254,8 +252,11 @@ screens = [
                     margin_y=0,
                     fontsize=15,
                 ),                
-                widget.Image(
-                    filename='~/.config/qtile/icons/tux.png',
+                widget.TextBox(
+                    text="",
+                    foreground="#000000",
+                    fontsize=35,
+                    padding=0
                 ),
                 widget.GenPollText(
                     fontsize=15,
@@ -268,8 +269,11 @@ screens = [
                     linewidth=3,
                     foreground="2f174d",
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/update.png',
+                widget.TextBox(
+                    text="",
+                    foreground="#000000",
+                    fontsize=20,
+                    padding=8,
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e paru -Syu')}
                 ),
                 widget.TextBox(
@@ -291,8 +295,10 @@ screens = [
                     foreground="2f174d",
                 ),
                 widget.TextBox(
-                    text='Vol:',
-                    padding=0
+                    text="",
+                    foreground="#ffffff",
+                    fontsize=35,
+                    padding=5
                 ),
                 widget.Volume(
                     device='pulse',
@@ -312,8 +318,11 @@ screens = [
                     linewidth=3,
                     foreground="2f174d",
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/time.png',
+                widget.TextBox(
+                    text="",
+                    foreground="#000000",
+                    fontsize=40,
+                    padding=5
                 ),
                 widget.Clock(
                     format='%d.%m %A %H:%M',
@@ -374,8 +383,11 @@ screens = [
                     margin_y=0,
                     fontsize=15
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/power.png'
+                widget.TextBox(
+                    text="",
+                    foreground="#ffffff",
+                    fontsize=22,
+                    padding=5
                 ),
                 widget.TextBox(
                     text='Power: ',
@@ -391,8 +403,11 @@ screens = [
                     linewidth=3,
                     foreground="2f174d",
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/display.png'
+                widget.TextBox(
+                    text="",
+                    foreground="#ffffff",
+                    fontsize=35,
+                    padding=5
                 ),
                 widget.TextBox(
                     text=" GPU: ",
@@ -408,8 +423,11 @@ screens = [
                     linewidth=3,
                     foreground="2f174d",
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/cpu.png'
+                widget.TextBox(
+                    text="",
+                    foreground="#ffffff",
+                    fontsize=30,
+                    padding=5
                 ),
                 widget.CPU(
                     font='Ubuntu',
@@ -424,8 +442,11 @@ screens = [
                     linewidth=3,
                     foreground="2f174d",
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/ram.png'
+                widget.TextBox(
+                    text="",
+                    foreground="#ffffff",
+                    fontsize=35,
+                    padding=5
                 ),
                 widget.Memory(
                     padding=10

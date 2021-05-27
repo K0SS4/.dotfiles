@@ -1,9 +1,9 @@
 #Pfetch config
-export PF_SEP=":"
-export PF_COL1=4
-export PF_COL2=4
-export PF_COL3=2
-export PF_ALIGN="8"
+#export PF_SEP=":"
+#export PF_COL1=4
+#export PF_COL2=4
+#export PF_COL3=2
+#export PF_ALIGN="8"
 
 #/home/k0ss4/.pfetch/./pfetch
 colorscript -r
@@ -48,10 +48,13 @@ alias c="git commit -m"
 alias pom="git push origin main"
 alias cronlog="sudo journalctl | grep CRON"
 alias crontab="EDITOR=nvim crontab -e"
-alias backdwm="/opt/dwm/./backup.sh"
+alias remove="udisksctl power-off -b"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/
 }
 
 eval "$(starship init zsh)"
+alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
+alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
+alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
