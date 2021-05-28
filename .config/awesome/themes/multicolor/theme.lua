@@ -28,7 +28,7 @@ theme.fg_urgent                                 = "#af1d18"
 theme.fg_minimize                               = "#ffffff"
 theme.border_width                              = 2
 theme.border_normal                             = "#1c2022"
-theme.border_focus                              = "#606060"
+theme.border_focus                              = "#ff0000"
 theme.border_marked                             = "#3ca4d8"
 theme.menu_border_width                         = 0
 theme.menu_width                                = 140
@@ -97,7 +97,7 @@ local markup = lain.util.markup
 -- Textclock
 os.setlocale(os.getenv("LANG")) -- to localize the clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
-local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#535f7a", ">") .. markup("#de5e1e", " %H:%M "))
+local mytextclock = wibox.widget.textclock(markup("#7788af", "%d/%m/%Y") .. markup("#de5e1e", " %H:%M "))
 mytextclock.font = theme.font
 
 -- Calendar
@@ -218,7 +218,7 @@ local netupinfo = lain.widget.net({
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local memory = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.fontfg(theme.font, "#e0da37", mem_now.used .. "M "))
+        widget:set_markup(markup.fontfg(theme.font, "#e0da37", mem_now.used .. "M/" .. mem_now.total .. "M "))
     end
 })
 
@@ -305,11 +305,6 @@ function theme.at_screen_connect(s)
         nil,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
-            --mailicon,
-            --mail.widget,
-            mpdicon,
-            theme.mpd.widget,
             netdownicon,
             netdowninfo,
             netupicon,
@@ -318,17 +313,9 @@ function theme.at_screen_connect(s)
             theme.volume.widget,
             memicon,
             memory.widget,
-            cpuicon,
-            cpu.widget,
-            weathericon,
-            theme.weather.widget,
-            tempicon,
-            temp.widget,
-            baticon,
-            bat.widget,
             clockicon,
             mytextclock,
-
+            wibox.widget.systray(),
         },
     }
 
