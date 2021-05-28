@@ -1,6 +1,5 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
-pcall(require, "luarocks.loader")
+local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
+local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
 
 -- Standard awesome library
 local gears = require("gears")
@@ -43,29 +42,30 @@ do
 end
 -- }}}
 
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- choose your theme here
+local chosen_theme = "multicolor"
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
+beautiful.init(theme_path)
 
+-- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = "nvim"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
+-- Default modkey.
+-- Usually, Mod4 is the key with a logo between Control and Alt.
+-- If you do not like this or do not have such a key,
+-- I suggest you to remap Mod4 to another key using xmodmap or other tools.
+-- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.max,
+    awful.layout.suit.floating,
 }
 -- }}}
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -84,9 +84,7 @@ local taglist_buttons = gears.table.join(
                                               if client.focus then
                                                   client.focus:toggle_tag(t)
                                               end
-                                          end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+                                          end)
                 )
 
 local tasklist_buttons = gears.table.join(
@@ -103,26 +101,19 @@ local tasklist_buttons = gears.table.join(
                                           end),
                      awful.button({ }, 3, function()
                                               awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
-                                          end))
-
+                                          end)
+                     )
 
 awful.screen.connect_for_each_screen(function(s)
-
     -- Each screen has its own tag table.
-    awful.tag({ "WWW", "DEV", "SYS", "DOC", "FUN", "MSC" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(gears.table.join(
-                           awful.button({ }, 1, function () awful.layout.inc( 1) end)))
-
+                           awful.button({ }, 1, function () awful.layout.inc( 1) end),
+                           awful.button({ }, 3, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
@@ -156,6 +147,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
+-- }}}
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -184,27 +176,19 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey,           }, ".", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey,           }, ",", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Space",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {description = "go back", group = "client"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Shift" }, "Return", function () awful.spawn("rofi -show drun") end,
-              {description = "spawn rofi", group = "launcher"}),
-    awful.key({ modkey, "Shift" }, "r", awesome.restart,
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn("rofi -show drun") end,
+              {description = "show rofi", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
@@ -221,10 +205,12 @@ globalkeys = gears.table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "Tab", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
+              {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Shift" }, "n",
+    awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
                   -- Focus restored client
@@ -248,10 +234,12 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "Space", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, "Shift"   }, "space", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
+    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+              {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -264,10 +252,10 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 6 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
-        awful.key({ modkey }, "#" .. i + 9,
+        awful.key({ modkey }, "#" .. i + 6,
                   function ()
                         local screen = awful.screen.focused()
                         local tag = screen.tags[i]
@@ -277,7 +265,7 @@ for i = 1, 9 do
                   end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
+        awful.key({ modkey, "Control" }, "#" .. i + 6,
                   function ()
                       local screen = awful.screen.focused()
                       local tag = screen.tags[i]
@@ -287,7 +275,7 @@ for i = 1, 9 do
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
         -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Shift" }, "#" .. i + 6,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]
@@ -298,7 +286,7 @@ for i = 1, 9 do
                   end,
                   {description = "move focused client to tag #"..i, group = "tag"}),
         -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 6,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]
@@ -376,6 +364,9 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
+    -- Set Firefox to always map on the tag named "2" on screen 1.
+    -- { rule = { class = "Firefox" },
+    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -385,10 +376,9 @@ client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     if not awesome.startup 
-        then 
-            awful.client.setslave(c) 
-        end
-
+       then 
+          awful.client.setslave(c) 
+       end
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
@@ -396,8 +386,19 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
+-- No border for maximized clients
+function border_adjust(c)
+    if c.maximized then -- no borders if only 1 client visible
+        c.border_width = 0
+    elseif #awful.screen.focused().clients > 1 then
+        c.border_width = beautiful.border_width
+        c.border_color = beautiful.border_focus
+    end
+end
 
+client.connect_signal("focus", border_adjust)
+client.connect_signal("property::maximized", border_adjust)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- }}}
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
