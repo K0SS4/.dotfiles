@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+if [ $(amixer -D pulse sget Master | grep 'Left:' | awk -F '[][]' '{ print $4 }') = 'off' ]
+then
+	echo "M"
+else
+	echo "$(amixer -D pulse sget Master | grep 'Left:' | awk -F '[][]' '{ print $2 }')"
+fi
