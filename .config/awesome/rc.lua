@@ -86,8 +86,16 @@ awful.util.taglist_buttons = my_table.join(
     end)
 )
 
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 -- }}}
+local counter = 0
+for s in screen do
+    if counter == 0 then
+        beautiful.at_screen_connect(s, counter)
+    else
+        beautiful.at_screen_connect(s, counter)
+    end
+    counter = counter + 1
+end
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
