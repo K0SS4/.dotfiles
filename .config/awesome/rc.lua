@@ -143,6 +143,8 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+    awful.key({                   }, "Print", function () awful.spawn.with_shell("maim -s -l --color=1,1,1,0.2 --format png /dev/stdout | xclip -selection clipboard -t image/png -i") end,
+              {description = "Maim", group = "screenshot"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -313,7 +315,6 @@ client.connect_signal("manage", function (c)
        end
 end)
 
--- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)

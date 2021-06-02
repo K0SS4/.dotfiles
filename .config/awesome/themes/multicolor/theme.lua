@@ -1,5 +1,4 @@
 --[[
-
      Multicolor Awesome WM theme 2.0
      github.com/lcpz
 
@@ -15,15 +14,17 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
-theme.font                                      = "Noto Sans Regular 13"
+--Fonts
+theme.font                                      = "Ubuntu Mono 13"
 theme.taglist_font                              = "Font Awesome 5 Free 14"
+theme.numbers_font                              = "Ubuntu Mono 14"
 --Icons
 theme.updates_icon                              = ""
 theme.textclock_icon                            = ""
 theme.memory_icon                               = ""
 theme.volume_icon                               = ""
 theme.netdown_icon                              = ""
-theme.netup_icon                                = ""
+theme.net_icon                                  = ""
 theme.gputemp_icon                              = ""
 theme.cputemp_icon                              = ""
 theme.power_icon                                = ""
@@ -31,16 +32,15 @@ theme.kernel_icon                               = ""
 --Colors
 --Widget colors
 theme.separator_fg                              = "#ffffff"
-theme.updates_fg                                = "#53b8fc"
-theme.textclock_fg                              = "#de5e1e"
-theme.memory_fg                                 = "#b76e00"
-theme.volume_fg                                 = "#e08002"
-theme.netdown_fg                                = "#03af11"
-theme.netup_fg                                  = "#bb71f7"
-theme.gputemp_fg                                = "#2d8e00"
-theme.cputemp_fg                                = "#fc5849"
-theme.power_fg                                  = "#01bac4"
-theme.kernel_fg                                 = "#0fcc90"
+theme.updates_fg                                = "#96b869"
+theme.textclock_fg                              = "#ff6c6b"
+theme.memory_fg                                 = "#96b869"
+theme.volume_fg                                 = "#e6a80b"
+theme.net_fg                                    = "#e6a80b"
+theme.gputemp_fg                                = "#e6a80b"
+theme.cputemp_fg                                = "#e6a80b"
+theme.power_fg                                  = "#ff6c6b"
+theme.kernel_fg                                 = "#ff6c6b"
 --Other colors
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
@@ -105,7 +105,7 @@ local markup = lain.util.markup
 
 -- Textclock
 os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock(markup(theme.textclock_fg, theme.textclock_icon .. " %d/%m/%y (%H:%M) "))
+local mytextclock = wibox.widget.textclock(markup(theme.textclock_fg, theme.textclock_icon .. markup.font(theme.numbers_font, " %d") .. "/" .. markup.font(theme.numbers_font, "%m") .. "/" .. markup.font(theme.numbers_font, "%y") .. "(" .. markup.font(theme.numbers_font, "%H") .. ":" .. markup.font(theme.numbers_font, "%M") .. ") "))
 mytextclock.font = theme.font
 
 -- ALSA volume
@@ -123,15 +123,15 @@ theme.volume = lain.widget.alsa({
 local netdowninfo = wibox.widget.textbox()
 local netupinfo = lain.widget.net({
     settings = function()
-        widget:set_markup(markup.fontfg(theme.font, theme.netup_fg, net_now.sent .. " " .. theme.netup_icon .. " "))
-        netdowninfo:set_markup(markup.fontfg(theme.font, theme.netdown_fg, net_now.received .. " " .. theme.netdown_icon .. " "))
+        widget:set_markup(markup.fontfg(theme.font, theme.net_fg, markup.font(theme.numbers_font, net_now.sent) .. "kb "))
+        netdowninfo:set_markup(markup.fontfg(theme.font, theme.net_fg, theme.net_icon .. " " .. markup.font(theme.numbers_font, net_now.received) .. "kb "))
     end
 })
 
 -- MEM
 local memory = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.fontfg(theme.font, theme.memory_fg, theme.memory_icon .. " " .. mem_now.used .. " M/" .. mem_now.total .. " M "))
+        widget:set_markup(markup.fontfg(theme.font, theme.memory_fg, theme.memory_icon .. " " .. markup.font(theme.numbers_font, mem_now.used) .. "M/" .. markup.font(theme.numbers_font, mem_now.total) .. "M "))
     end
 })
 
@@ -139,9 +139,9 @@ local scripts_beg = "bash -c '~/.config/awesome/scripts'"
 
 --Updates widget
 local updatestext = wibox.widget.textbox(markup.fontfg(theme.font, theme.updates_fg, theme.updates_icon .. " Updates: "))
-local updates = awful.widget.watch(string.format("%s/updates", scripts_beg), 2,
+local updates = awful.widget.watch(string.format("%s/updates", scripts_beg), 600,
    function (widget, stdout)
-      widget:set_markup(markup.fontfg(theme.font, theme.updates_fg, stdout))
+      widget:set_markup(markup.fontfg(theme.numbers_font, theme.updates_fg, stdout))
    end)
 
 --GPU temperature widget
@@ -192,6 +192,7 @@ function theme.at_screen_connect(s, monitor)
    -- Create the wibox
    s.mywibox = awful.wibar({ position = "top", screen = s, height = 20, bg = theme.bg_normal, fg = theme.fg_normal })
    --First monitor
+
    if monitor == 0 then
       -- Add widgets to the wibox
       s.mywibox:setup {
@@ -205,17 +206,16 @@ function theme.at_screen_connect(s, monitor)
          nil,
          { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            separator,
             updatestext,
             updates,
-            separator,
-            kerneltext,
-            kernel,
             separator,
             theme.volume.widget,
             separator,
             netdowninfo,
             netupinfo.widget,
+            separator,
+            kerneltext,
+            kernel,
             separator,
             mytextclock,
             separator,
@@ -237,6 +237,7 @@ function theme.at_screen_connect(s, monitor)
             layout = wibox.layout.fixed.horizontal,
             powertext,
             power,
+            powerletter,
             separator,
             cputemptext,
             cputemp,

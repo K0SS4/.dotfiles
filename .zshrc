@@ -1,9 +1,9 @@
 #Pfetch config
-#export PF_SEP=":"
-#export PF_COL1=4
-#export PF_COL2=4
-#export PF_COL3=2
-#export PF_ALIGN="8"
+export PF_SEP=":"
+export PF_COL1=4
+export PF_COL2=4
+export PF_COL3=2
+export PF_ALIGN="8"
 
 #/home/k0ss4/.pfetch/./pfetch
 colorscript -r
