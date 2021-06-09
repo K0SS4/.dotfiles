@@ -6,6 +6,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
        , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 }
        , lowerOnStart = True
        , hideOnStart = False
+       , allDesktops = True
        , persistent = True
        , commands = [
                       Run Memory ["-t", "<used>M/<total>M"] 20

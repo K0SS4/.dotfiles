@@ -1,55 +1,70 @@
 ----------------------------------------
 ----------------IMPORTS-----------------
 ----------------------------------------
---Base
+  -- Base
 import XMonad
 import System.Directory
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
 
--- Actions
+    -- Actions
 import XMonad.Actions.CopyWindow (kill1)
 import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
 import XMonad.Actions.GridSelect
 import XMonad.Actions.MouseResize
 import XMonad.Actions.Promote
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
+import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Actions.WithAll (sinkAll, killAll)
+import qualified XMonad.Actions.Search as S
 
--- Data
-import Data.Monoid
+    -- Data
+import Data.Char (isSpace, toUpper)
 import Data.Maybe (fromJust)
+import Data.Monoid
+import Data.Maybe (isJust)
+import Data.Tree
 import qualified Data.Map as M
 
--- Hooks
+    -- Hooks
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
+import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.WorkspaceHistory
 
--- Layouts
+    -- Layouts
+import XMonad.Layout.Accordion
+import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
+import XMonad.Layout.Spiral
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
 
--- Layouts modifiers
+    -- Layouts modifiers
 import XMonad.Layout.LayoutModifier
-import XMonad.Layout.LimitWindows (limitWindows)
+import XMonad.Layout.LimitWindows (limitWindows, increaseLimit, decreaseLimit)
+import XMonad.Layout.Magnifier
 import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), (??))
 import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Layout.ShowWName
+import XMonad.Layout.Simplest
 import XMonad.Layout.Spacing
+import XMonad.Layout.SubLayouts
 import XMonad.Layout.WindowArranger (windowArrange, WindowArrangerMsg(..))
 import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
 import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
 
--- Utilities
+   -- Utilities
 import XMonad.Util.Dmenu
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
 import XMonad.Util.SpawnOnce
 
@@ -142,6 +157,21 @@ myTabTheme = def { fontName            = myFont
                  }
 
 ----------------------------------------
+--------------SCRATCHPADS---------------
+----------------------------------------
+myScratchPads :: [NamedScratchpad]
+myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm ]
+  where
+    spawnTerm  = myTerminal ++ " -t scratchpad"
+    findTerm   = title =? "scratchpad"
+    manageTerm = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+
+----------------------------------------
 ---------------WORKSPACES---------------
 ----------------------------------------
 
@@ -173,7 +203,6 @@ myManageHook = composeAll
      -- name of my workspaces and the names would be very long if using clickable workspaces.
      [ className =? "confirm"         --> doFloat
      , className =? "file_progress"   --> doFloat
-     , className =? "Galculator"      --> doFloat
      , className =? "dialog"          --> doFloat
      , className =? "download"        --> doFloat
      , className =? "error"           --> doFloat
@@ -187,7 +216,7 @@ myManageHook = composeAll
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      , isFullscreen -->  doFullFloat
-     ] 
+     ] <+> namedScratchpadManageHook myScratchPads
 
 ----------------------------------------
 -----------------KEYS-------------------
@@ -252,7 +281,12 @@ myKeys =
         , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse set Master 5%+ unmute")
         , ("<Print>", spawn "maim -s -l --color=1,1,1,0.2 --format png /dev/stdout | xclip -selection clipboard -t image/png -i")
+
+    -- Scratchpads
+        , ("<F12>", namedScratchpadAction myScratchPads "terminal")
         ]
+          where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))
+                nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "NSP"))
 
 ----------------------------------------
 -----------------MAIN-------------------
@@ -274,7 +308,7 @@ main = do
         , borderWidth        = myBorderWidth
         , normalBorderColor  = myNormColor
         , focusedBorderColor = myFocusColor
-        , logHook = dynamicLogWithPP $ xmobarPP
+        , logHook = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
               -- the following variables beginning with 'pp' are settings for xmobar.
               { ppOutput = \x -> hPutStrLn xmproc0 x                          -- xmobar on monitor 1
                               >> hPutStrLn xmproc1 x                          -- xmobar on monitor 2
@@ -282,8 +316,7 @@ main = do
               , ppVisible = xmobarColor "#96b869" "" . clickable              -- Visible but not current workspace
               , ppHidden = xmobarColor "#dfe683" "" . wrap "*" "" . clickable -- Hidden workspaces
               , ppHiddenNoWindows = xmobarColor "#e6a80b" "" . clickable      -- Hidden workspaces (no windows)
-              , ppTitle = const ""                                            -- Title of active window
-              , ppTitleSanitize = const ""
+              , ppTitle = const ""
               , ppSep =  "<fc=#ffffff><fn=1>|</fn> </fc>"                     -- Separator character
               , ppUrgent = xmobarColor "#ff0000" "" . wrap "!" "!"            -- Urgent workspace
               }
