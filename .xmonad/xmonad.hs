@@ -96,10 +96,10 @@ myStartupHook = do
     spawnOnce "lxsession &"
     spawnOnce "picom &"
     spawnOnce "nm-applet &"
-    spawnOnce "volumeicon &"
     spawnOnce "xfce4-clipman &"
-    spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
+    spawnOnce "nitrogen --restore &"
     spawnOnce "trayer --edge top --align right --widthtype request --padding 5 --monitor 1 --transparent true --alpha 120 --tint 0x282c34 --height 24 &"
+    spawnOnce "nvidia-settings -l"
     setWMName "XMonad"
 
 ----------------------------------------

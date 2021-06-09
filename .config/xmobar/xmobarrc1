@@ -1,6 +1,6 @@
-Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 5 Free Solid:pixelsize=16,"
+Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 5 Free Solid:pixelsize=17,"
        , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=20:antialias=true:hinting=true"
-                           , "xft:Font Awesome 5 Brands:pixelsize=16" ]
+                           , "xft:Font Awesome 5 Brands:pixelsize=17" ]
        , bgColor = "#282c34"
        , alpha = 200
        , fgColor = "#ff6c6b"
@@ -11,7 +11,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
        , commands = [
                       Run Date "%d/%m/%Y - (%H:%M) " "date" 50
                     , Run Network "enp24s0" ["-t", "<rx>kb <tx>kb"] 20
-                    , Run Com "/home/k0ss4/.config/xmobar/scripts/updates" [] "pacupdate" 18000
+                    , Run Com "/home/k0ss4/.config/xmobar/scripts/updates" [] "pacupdate" 10000
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 18000
                     , Run Com "/home/k0ss4/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
 		    , Run Com "/home/k0ss4/.config/xmobar/scripts/volume" [] "vol" 5
