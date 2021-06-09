@@ -23,19 +23,20 @@ This is my personal setup. If you want to use it you can of course do that but I
             - zsh-syntax-highlighting (for syntax highlighting when you're typing in the terminal)
 - neovim (my text editor)
     - vim-plug (plugins manager for neovim)
-- feh (for wallpaper)
+- nitrogen (for wallpaper)
 - sxiv (for images preview when clicking M-`<F1>`)
 - maim (screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard)
 
 #### Autostart
 - network-manager-applet(network manager icon in the systray)
-- volumeicon (Volume icon in the systray)
+- trayer (systray)
 - xfce4-clipman-plugin (clipboard manager)
 - picom (compositor)
 - lxsession (polkit)
+- nvidia-settings -l (load my nvidia config)
 
-I hope i did not forget about something. You will probably have adjust my xmobar scripts for example:  
+I hope I did not forget about something. You will probably have adjust my xmobar scripts for example:  
 - the kernel script is written for zen kernel specifically,  
 - the gputemp script is written for nvidia-smi,  
 - the cputemp script should be fine but idk,  
@@ -51,4 +52,4 @@ Screenshots:
 ![screenshot of display 1](https://i.imgur.com/zKEMvzn.png)
 ![screenshot of display 0](https://i.imgur.com/sgiaR4n.png)
 
-Alternatively you can grab my qtile setup from the second branch of this repo.
+Alternatively you can grab my qtile or awesomewm setup from the other branches of this repo.
