@@ -21,7 +21,6 @@ fi
 export MANPAGER="nvim -c 'set ft=man' -"
 export TERM="xterm-256color"
 export ZSH="/home/k0ss4/.oh-my-zsh"
-export PATH="${PATH}:/home/k0ss4/.emacs.d/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -55,6 +54,4 @@ function geoip {
 }
 
 eval "$(starship init zsh)"
-alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
-alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
 alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
