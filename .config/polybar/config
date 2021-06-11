@@ -1,0 +1,271 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false;
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[colors]
+;background = ${xrdb:color0:#222}
+foreground-cpu = #c8bf00
+foreground-gpu = #de9c3d
+foreground-power = #de9c3d
+foreground-memory = #c8bf00
+foreground-updates = #c8bf00
+foreground-alsa = #de9c3d
+foreground-network = #c8bf00
+foreground-kernel = #de9c3d
+foreground-date = #de9c3d
+foreground-active = #b79301
+background = #222222
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/i3first]
+monitor = ${env:MONITOR:DP-0}
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+radius = 10.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "UbuntuMono:size=12:style=Bold;2"
+font-1 = "UbuntuMono Nerd Font:size=15;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=15;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=;1"
+
+modules-left = i3
+modules-center = date
+modules-right = updates alsa network kernel 
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = i3
+
+;override-redirect = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/i3second]
+monitor = ${env:MONITOR:HDMI-0}
+width = 100%
+height = 30
+;offset-x = 1%
+;offset-y = 1%
+radius = 10.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "UbuntuMono:size=10:style=Bold;2"
+font-1 = "UbuntuMono Nerd Font:size=16;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
+
+modules-left = i3
+modules-right = power cputemp gputemp memory
+
+cursor-click = pointer
+cursor-scroll = normal
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-foreground = ${colors.foreground-active}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding = 2
+label-unfocused-underline = ${colors.foreground-updates}
+label-unfocused-foreground = ${colors.foreground-updates}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/memory]
+type = internal/memory
+
+format-foreground = ${colors.foreground-memory}
+format-padding = 5
+label = %mb_used%/%mb_total%
+
+interval = 2
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %d/%m/%Y "
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+label =   %date% %time%
+label-foreground = ${colors.foreground-date}
+
+[module/alsa]
+type = internal/alsa
+
+format-volume =    VOL: <label-volume>
+format-volume-foreground = ${colors.foreground-alsa}
+format-volume-padding = 5
+label-volume = %percentage%%
+
+format-muted-foreground = ${colors.foreground-alsa}
+format-muted-padding = 5
+label-muted =     VOL: M
+
+[module/network]
+type = internal/network
+interface = enp24s0
+interval = 2
+label-connected =  %downspeed%  %upspeed%
+format-connected-padding = 5
+format-connected-foreground = ${colors.foreground-network}
+format-connected-background = ${colors.background-alt}
+
+[module/updates]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/updates
+
+format =   Updates: <label>
+format-foreground = ${colors.foreground-updates}
+format-background = ${colors.background-alt}
+format-padding = 5
+label = %output%
+
+interval = 600
+
+[module/kernel]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/kernel
+
+format =    <label>
+format-foreground = ${colors.foreground-kernel}
+format-padding = 5
+label = %output%
+
+interval = 3600
+
+[module/gputemp]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/gputemp
+
+format =   GPU: <label>
+format-foreground = ${colors.foreground-gpu}
+format-background = ${colors.background-alt}
+format-padding = 5
+label = %output%
+
+tail = true
+
+[module/cputemp]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/cputemp
+
+format =   CPU: <label>
+format-foreground = ${colors.foreground-cpu}
+format-padding = 5
+label = %output%
+
+tail = true
+
+[module/power]
+type = custom/script
+exec = $HOME/.power.sh
+
+format =  Power: <label>
+format-foreground = ${colors.foreground-power}
+format-background = ${colors.background-alt}
+format-padding = 5
+label = %output%
+
+tail = true
+
