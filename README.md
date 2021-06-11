@@ -40,7 +40,7 @@ I hope I did not forget about something. You will probably have to adjust my pol
 You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.
 
 Screenshots:  
-![screenshot of display 1](https://i.imgur.com/zKEMvzn.png)
+![screenshot of display 1](https://i.imgur.com/bxSD3CS.png)
 ![screenshot of display 0](https://i.imgur.com/UMXNepG.png)
 
 Alternatively you can grab my qtile, awesomewm or xmonad setup from the other branches of this repo.
