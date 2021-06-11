@@ -13,6 +13,7 @@ call plug#end()
 
 syntax on
 colorscheme challenger_deep
+set filetype=dosini
 
 set number
 set noswapfile
