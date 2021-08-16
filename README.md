@@ -1,5 +1,7 @@
 # My custom Arch Linux dotfiles. i3gaps and Polybar
 
+## This setup includes GreenWithEnvy database wich has my GPU overclocking profile. I receommend you to remove that file(.config/gwe/gwe.db) and I don't take any responsibility if you won't.
+
 This is my personal setup. If you want to use it you can of course do that but I don't take any responsibility if anything bad happens(it shouldn't tho).
 
 ## Needed dependencies (You'll have to check how to install them on your distro):  
