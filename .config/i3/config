@@ -4,7 +4,7 @@ gaps inner 10
 
 #Variables
 set $mod Mod4
-set $term alacritty
+set $term kitty
 
 set $left h
 set $down j
