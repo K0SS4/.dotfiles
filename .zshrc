@@ -13,6 +13,7 @@ export PATH="${PATH}:/home/k0ss4/.local/bin"
 export MANPAGER="nvim -c 'set ft=man' -"
 export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
 
 plugins=(git archlinux zsh-syntax-highlighting zsh-autosuggestions)
 

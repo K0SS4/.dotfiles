@@ -1,5 +1,5 @@
 configuration {
-	theme: "~/.config/rofi/themes/dmenu-like.rasi";
+	theme: "~/.config/rofi/themes/spotlight.rasi";
 	show-icons: true;
 	display-drun: "Run: ";
 }
