@@ -6,6 +6,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 
 ## Needed dependencies (You'll have to check how to install them on your distro):  
 - i3gaps(The WM I'm using)  
+- betterlockscreen(Obvious I guess)
 - polybar (The bar)  
     - lm_sensors (for CPU temperature in the status bar)
     - Ubuntu font family (polybar general font)

@@ -34,6 +34,8 @@ alias c="git commit -m"
 alias pom="git push origin main"
 alias cronlog="sudo journalctl | grep CRON"
 alias remove="udisksctl power-off -b"
+alias conn="sudo windscribe connect"
+alias dis="sudo windscribe disconnect"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/

@@ -34,7 +34,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse set Master 5%- unmute
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master toggle
 
-bindsym $mod+control+l exec --no-startup-id "i3lock -i $HOME/.images/arch_black.png"
+bindsym $mod+control+l exec --no-startup-id "betterlockscreen -l"
 
 # use Mouse+Mod to drag floating windows to their wanted position
 floating_modifier $mod
