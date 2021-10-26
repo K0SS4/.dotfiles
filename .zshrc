@@ -34,8 +34,10 @@ alias c="git commit -m"
 alias pom="git push origin main"
 alias cronlog="sudo journalctl | grep CRON"
 alias remove="udisksctl power-off -b"
-alias conn="sudo windscribe connect"
-alias dis="sudo windscribe disconnect"
+alias conn="windscribe connect"
+alias dis="windscribe disconnect"
+alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh atf5krpz.default-nightly >> /dev/null; poweroff"
+alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh atf5krpz.default-nightly >> /dev/null; reboot"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/
