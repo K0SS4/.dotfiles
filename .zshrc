@@ -36,8 +36,8 @@ alias cronlog="sudo journalctl | grep CRON"
 alias remove="udisksctl power-off -b"
 alias conn="windscribe connect"
 alias dis="windscribe disconnect"
-alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh atf5krpz.default-nightly >> /dev/null; poweroff"
-alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh atf5krpz.default-nightly >> /dev/null; reboot"
+alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh d3p2n458.default-default >> /dev/null; poweroff"
+alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh d3p2n458.default-default >> /dev/null; reboot"
 
 function geoip {
 	curl https://ipapi.co/$1/$2/

@@ -49,7 +49,7 @@ bindsym Shift+F4 exec "/home/k0ss4/.local/bin/firefox-sync.sh atf5krpz.default-n
 bindsym Print exec --no-startup-id "maim -s -l --color=1,1,1,0.2 --format png /dev/stdout | xclip -selection clipboard -t image/png -i"
 
 # start dmenu (a program launcher)
-bindsym $mod+Shift+Return exec --no-startup-id "rofi -show drun"
+bindsym $mod+Shift+Return exec --no-startup-id "rofi -show drun -display-drun Run: -location 2 -show-icons true -icons-theme Papirus"
 
 # change focus
 bindsym $mod+$left focus left
