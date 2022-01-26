@@ -1,0 +1,21 @@
+Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 5 Free Solid:fontsize=17"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=20:antialias=true:hinting=true" ]
+       , bgColor = "#282c34"
+       , alpha = 200
+       , fgColor = "#ff6c6b"
+       , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 }
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , commands = [
+                      Run Memory ["-t", "<used>M/<total>M"] 20
+                    , Run Com "/home/k0ss4/.config/xmobar/scripts/cputemp" [] "cputemp" 20
+		    , Run Com "/home/k0ss4/.config/xmobar/scripts/gputemp" [] "gputemp" 20
+		    , Run Com "/home/k0ss4/.power.sh" [] "power" 20
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %UnsafeStdinReader% }{  Power: %power% <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  GPU: %gputemp% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  CPU: %cputemp% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>  %memory%</fc>" }
+

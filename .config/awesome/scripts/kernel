@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo "$(uname -r | awk -F '-' '{ print $1 }')"
