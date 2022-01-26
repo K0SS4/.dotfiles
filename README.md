@@ -1,19 +1,30 @@
-# My custom Arch Linux dotfiles. i3gaps and Polybar
+# My custom Arch Linux dotfiles. 
+### Includes configs for:
+- WMs:
+  - xmonad 
+  - i3-gaps
+  - awesomewm
+- polybar
+- xmobar
+- rofi
+- kitty
+- alacritty
+- starship
+- neovim
 
 ## This setup includes GreenWithEnvy database wich has my GPU overclocking profile. I receommend you to remove that file(.config/gwe/gwe.db) and I don't take any responsibility if you won't.
 
 This is my personal setup. If you want to use it you can of course do that but I don't take any responsibility if anything bad happens(it shouldn't tho).
 
-## Needed dependencies (You'll have to check how to install them on your distro):  
-- i3gaps(The WM I'm using)  
-- betterlockscreen(Obvious I guess)
-- polybar (The bar)  
+## "Dependencies" (You'll have to check how to install them on your distro):  
+- betterlockscreen(Obvious I guess)  
+- For status bar:
     - lm_sensors (for CPU temperature in the status bar)
     - Ubuntu font family (polybar general font)
     - Font Awesome 5 Free (icons in the polybar)
     - Font Awesome 5 Brands (tux logo in the polybar)
 - rofi (applications launcher)  
-- alacritty (my terminal)
+- For terminal
     - shell-color-scripts (for cool looking terminal. You can grab it from [here](https://gitlab.com/dwt1/shell-color-scripts) )  
     - zsh (shell)      
         - oh-my-zsh (zsh framework)
@@ -26,24 +37,24 @@ This is my personal setup. If you want to use it you can of course do that but I
 - maim (screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard)
 
-#### Autostart
-- network-manager-applet(network manager icon in the systray)
-- xfce4-clipman-plugin (clipboard manager)
-- picom (compositor)
-- lxsession (polkit)
-- nvidia-settings -l (load my nvidia config)
-
-I hope I did not forget about something. You will probably have to adjust my polybar scripts for example:  
+I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
 - the kernel script is written for zen kernel specifically,  
 - the gputemp script is written for nvidia-smi,  
 - the cputemp script should be fine but idk,  
 - the updates script is written for arch specifically(and for paru as an aur helper),  
-- the network "module" in polybar is set to enp24s0 interface  
+- the network "module" in polybar/xmobar is set to enp34s0 interface  
 
 You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.
 
-Screenshots:  
-![screenshot of display 1](https://i.imgur.com/bxSD3CS.png)
-![screenshot of display 0](https://i.imgur.com/UMXNepG.png)
+#Screenshots:  
+## xmonad
+![screenshot of display 1](https://i.imgur.com/Ofsjoqp.png)
+![screenshot of display 0](https://i.imgur.com/jUFx1jg.png)
 
-Alternatively you can grab my qtile, awesomewm or xmonad setup from the other branches of this repo.
+## i3-gaps
+![screenshot of display 1](https://i.imgur.com/Ykif8Kt.png)
+![screenshot of display 0](https://i.imgur.com/EzR77I8.png)
+
+## awesomewm
+![screenshot of display 1](https://i.imgur.com/NCSufy5.png)
+![screenshot of display 0](https://i.imgur.com/TflaaVj.png)

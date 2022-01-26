@@ -10,7 +10,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
        , persistent = True
        , commands = [
                       Run Date "%d/%m/%Y - (%H:%M) " "date" 50
-                    , Run Network "enp24s0" ["-t", "<rx>kb <tx>kb"] 20
+                    , Run Network "enp34s0" ["-t", "<rx>kb <tx>kb"] 20
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/updates" [] "pacupdate" 10000
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 18000
                     , Run Com "/home/k0ss4/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
@@ -19,5 +19,5 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %UnsafeStdinReader% }  %date%{ <fn=2></fn> %uname% <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  Vol: %vol% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>   %enp24s0% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>   <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#ffffff><fn=1>|</fn></fc> %trayerpad%" }
+       , template = " %UnsafeStdinReader% }  %date%{ <fn=2></fn> %uname% <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  Vol: %vol% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>   %enp34s0% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>   <action=`alacritty -e paru -Syu`>Updates: %pacupdate%</action> </fc> <fc=#ffffff><fn=1>|</fn></fc> %trayerpad%" }
 

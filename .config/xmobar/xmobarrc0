@@ -11,11 +11,10 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
        , commands = [
                       Run Memory ["-t", "<used>M/<total>M"] 20
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/cputemp" [] "cputemp" 20
-		    , Run Com "/home/k0ss4/.config/xmobar/scripts/gputemp" [] "gputemp" 20
-		    , Run Com "/home/k0ss4/.power.sh" [] "power" 20
+		            , Run Com "/home/k0ss4/.config/xmobar/scripts/gputemp" [] "gputemp" 20
                     , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %UnsafeStdinReader% }{  Power: %power% <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  GPU: %gputemp% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  CPU: %cputemp% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>  %memory%</fc>" }
+       , template = " %UnsafeStdinReader% }{ <fc=#e6a80b>  GPU: %gputemp% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#e6a80b>  CPU: %cputemp% </fc> <fc=#ffffff><fn=1>|</fn></fc> <fc=#96b869>  %memory%</fc>" }
 

@@ -28,19 +28,11 @@ alias ohmyzsh="upgrade_oh_my_zsh"
 alias config="git --git-dir=$HOME/.cfg --work-tree=$HOME"
 alias ls="exa -la"
 alias cat="bat"
-alias s="git status"
-alias a="git add"
-alias c="git commit -m"
-alias pom="git push origin main"
 alias cronlog="sudo journalctl | grep CRON"
 alias remove="udisksctl power-off -b"
 alias conn="windscribe connect"
 alias dis="windscribe disconnect"
 alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh d3p2n458.default-default >> /dev/null; poweroff"
 alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh d3p2n458.default-default >> /dev/null; reboot"
-
-function geoip {
-	curl https://ipapi.co/$1/$2/
-}
 
 eval "$(starship init zsh)"
