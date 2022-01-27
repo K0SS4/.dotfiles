@@ -11,7 +11,7 @@ colorscript -r
 ### Exports ###
 export PATH="${PATH}:/home/k0ss4/.local/bin"
 export MANPAGER="nvim -c 'set ft=man' -"
-export TERM="xterm-256color"
+#export TERM="xterm"
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 
@@ -32,7 +32,7 @@ alias cronlog="sudo journalctl | grep CRON"
 alias remove="udisksctl power-off -b"
 alias conn="windscribe connect"
 alias dis="windscribe disconnect"
-alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh d3p2n458.default-default >> /dev/null; poweroff"
-alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh d3p2n458.default-default >> /dev/null; reboot"
+alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh pz8i377i.default-release >> /dev/null; poweroff"
+alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh pz8i377i.default-release >> /dev/null; reboot"
 
 eval "$(starship init zsh)"

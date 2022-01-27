@@ -62,7 +62,7 @@ myModMask :: KeyMask
 myModMask = mod4Mask        -- Sets modkey to super/windows key
 
 myTerminal :: String
-myTerminal = "kitty"        -- Sets default terminal
+myTerminal = "st"        -- Sets default terminal
 
 myBorderWidth :: Dimension
 myBorderWidth = 2           -- Sets border width for windows

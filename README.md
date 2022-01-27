@@ -7,6 +7,7 @@
 - polybar
 - xmobar
 - rofi
+- st
 - kitty
 - alacritty
 - starship
