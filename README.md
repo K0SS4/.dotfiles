@@ -10,6 +10,8 @@
 - st
 - kitty
 - alacritty
+- zsh
+- fish
 - starship
 - neovim
 
@@ -27,9 +29,11 @@ This is my personal setup. If you want to use it you can of course do that but I
 - rofi (applications launcher)  
 - For terminal
     - shell-color-scripts (for cool looking terminal. You can grab it from [here](https://gitlab.com/dwt1/shell-color-scripts) )  
+    - fish (shell)
+        - starship prompt
     - zsh (shell)      
         - oh-my-zsh (zsh framework)
-            - starhip prompt (the zsh prompt)
+            - starhip prompt
             - zsh-autosuggestions (for suggestions when you're typing in the terminal)
             - zsh-syntax-highlighting (for syntax highlighting when you're typing in the terminal)
 - neovim (my text editor)
