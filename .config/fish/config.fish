@@ -46,7 +46,7 @@ alias dis='windscribe disconnect; sudo systemctl stop windscribe'
 alias winstat='windscribe status'
 
 #firefox profile in ram
-#alias poweroff='/home/k0ss4/.local/bin/firefox-sync.sh pz8i377i.default-release >> /dev/null; poweroff'
+#alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh pz8i377i.default-release >> /dev/null; poweroff"
 #alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh pz8i377i.default-release >> /dev/null; reboot"
 
 #poweroff disk

@@ -246,6 +246,8 @@ label = %output%
 
 tail = true
 
+interval = 2
+
 [module/cputemp]
 type = custom/script
 exec = $HOME/.config/polybar/scripts/cputemp
@@ -256,6 +258,8 @@ format-padding = 5
 label = %output%
 
 tail = true
+
+interval = 2
 
 [module/power]
 type = custom/script
@@ -268,4 +272,5 @@ format-padding = 5
 label = %output%
 
 tail = true
+interval = 3
 
