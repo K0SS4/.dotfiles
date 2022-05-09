@@ -43,7 +43,6 @@ This is my personal setup. If you want to use it you can of course do that but I
 - xclip (for copying selected screenshot area to the clipboard)
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
-- the kernel script is written for zen kernel specifically,  
 - the gputemp script is written for nvidia-smi,  
 - the cputemp script should be fine but idk,  
 - the updates script is written for arch specifically(and for paru as an aur helper),  
