@@ -10,7 +10,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=t
        , persistent = True
        , commands = [
                       Run Date "%d/%m/%Y - (%H:%M) " "date" 50
-                    , Run Network "enp34s0" ["-t", "<rx>kb <tx>kb"] 20
+                    , Run Network "eth0" ["-t", "<rx>kb <tx>kb"] 20
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/updates" [] "pacupdate" 10000
                     , Run Com "/home/k0ss4/.config/xmobar/scripts/kernel" [] "uname" 18000
                     , Run Com "/home/k0ss4/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20

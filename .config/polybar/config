@@ -73,8 +73,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Ubuntu Light Nerd Font:size=10:style=Bold;2"
-font-1 = "Ubuntu Mono Nerd Font:size=15;3"
+font-0 = "Ubuntu Light 5 Nerd Font:size=10:style=Bold;2"
+font-1 = "Ubuntu Mono 5 Nerd Font:size=15;3"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=15;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=;1"
@@ -204,7 +204,7 @@ label-muted =     VOL: M
 
 [module/network]
 type = internal/network
-interface = enp34s0
+interface = eth0
 interval = 2
 label-connected =  %downspeed%  %upspeed%
 format-connected-padding = 5
