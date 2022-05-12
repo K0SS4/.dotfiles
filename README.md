@@ -1,4 +1,4 @@
-# My custom Artix Linux dotfiles. 
+# My custom Arch Linux dotfiles. 
 ### Includes configs for:
 - WMs:
   - xmonad 
@@ -24,8 +24,8 @@ This is my personal setup. If you want to use it you can of course do that but I
 - For status bar:
     - lm_sensors (for CPU temperature in the status bar)
     - Ubuntu font family (polybar general font)
-    - Font Awesome 5 Free (icons in the polybar)
-    - Font Awesome 5 Brands (tux logo in the polybar)
+    - Font Awesome 6 Free (icons in the polybar)
+    - Font Awesome 6 Brands (tux logo in the polybar)
 - rofi (applications launcher)  
 - For terminal
     - shell-color-scripts (for cool looking terminal. You can grab it from [here](https://gitlab.com/dwt1/shell-color-scripts) )  
@@ -46,7 +46,7 @@ I hope I did not forget about something. You will probably have to adjust my pol
 - the gputemp script is written for nvidia-smi,  
 - the cputemp script should be fine but idk,  
 - the updates script is written for arch-based distros specifically(and for paru as an aur helper),  
-- the network "module" in polybar/xmobar is set to eth0 interface  
+- the network "module" in polybar/xmobar is set to enp34s0 interface  
 
 You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.
 

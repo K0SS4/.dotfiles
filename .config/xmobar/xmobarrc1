@@ -1,4 +1,4 @@
-Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 5 Free Solid:pixelsize=17,"
+Config { font    = "xft:Ubuntu:weight=bold:pixelsize=15:antialias=true:hinting=true,Font Awesome 6 Free Solid:pixelsize=17,"
        , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=20:antialias=true:hinting=true"
                            , "xft:Font Awesome 5 Brands:pixelsize=17" ]
        , bgColor = "#282c34"

@@ -16,7 +16,7 @@ local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 --Fonts
 theme.font                                      = "Ubuntu Mono 13"
-theme.taglist_font                              = "Font Awesome 5 Free 14"
+theme.taglist_font                              = "Font Awesome 6 Free 14"
 theme.numbers_font                              = "Ubuntu Mono 14"
 --Icons
 theme.updates_icon                              = ""
