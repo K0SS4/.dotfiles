@@ -47,6 +47,7 @@ I hope I did not forget about something. You will probably have to adjust my pol
 - the cputemp script should be fine but idk,  
 - the updates script is written for arch-based distros specifically(and for paru as an aur helper),  
 - the network "module" in polybar/xmobar is set to enp34s0 interface  
+- the volume module in polybar is written for pipewire
 
 You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.
 

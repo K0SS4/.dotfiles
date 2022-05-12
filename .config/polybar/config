@@ -35,7 +35,7 @@ foreground-gpu = #de9c3d
 foreground-power = #de9c3d
 foreground-memory = #c8bf00
 foreground-updates = #c8bf00
-foreground-alsa = #de9c3d
+foreground-pipewire = #de9c3d
 foreground-network = #c8bf00
 foreground-kernel = #de9c3d
 foreground-date = #de9c3d
@@ -57,6 +57,7 @@ height = 27
 ;offset-y = 1%
 radius = 10.0
 fixed-center = true
+enable-ipc = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -80,7 +81,7 @@ font-3 = "Font Awesome 6 Brands:pixelsize=13;4"
 
 modules-left = i3
 modules-center = date
-modules-right = updates alsa network kernel 
+modules-right = updates pipewire network kernel 
 
 tray-position = right
 tray-padding = 2
@@ -271,3 +272,15 @@ label = %output%
 tail = true
 interval = 3
 
+[module/pipewire]
+type = custom/script
+label = "%output%"
+format =   VOL: <label> 
+interval = 0.2
+format-foreground = ${colors.foreground-pipewire}
+format-background = ${colors.background}
+exec = ~/.config/polybar/scripts/sound.sh
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/sound.sh --mute &
+scroll-up = ~/.config/polybar/scripts/sound.sh --up &
+scroll-down = ~/.config/polybar/scripts/sound.sh --down &

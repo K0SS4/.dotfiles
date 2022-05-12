@@ -30,9 +30,9 @@ exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse set Master 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 5
+bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute
 
 bindsym $mod+control+l exec --no-startup-id "betterlockscreen -l"
 
