@@ -225,9 +225,9 @@ interval = 600
 type = custom/script
 exec = $HOME/.config/polybar/scripts/kernel
 
-format =    <label>
+format =   <label>
 format-foreground = ${colors.foreground-kernel}
-format-padding = 5
+format-padding = 3
 label = %output%
 
 interval = 3600
@@ -276,6 +276,7 @@ interval = 3
 type = custom/script
 label = "%output%"
 format =   VOL: <label> 
+format-padding = 4
 interval = 0.2
 format-foreground = ${colors.foreground-pipewire}
 format-background = ${colors.background}
