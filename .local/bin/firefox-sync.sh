@@ -7,7 +7,7 @@ volatile=/dev/shm/firefox-$1-$USER
 IFS=
 set -efu
 
-cd ~/.librewolf
+cd ~/.mozilla/firefox
 
 if [ ! -r $volatile ]; then
 	mkdir -m0700 $volatile
