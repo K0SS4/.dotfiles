@@ -74,8 +74,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Ubuntu Light 5 Nerd Font:size=10:style=Bold;2"
-font-1 = "Ubuntu Mono 5 Nerd Font:size=15;3"
+font-0 = "Ubuntu Nerd Font:size=11:style=Bold;2"
+font-1 = "Ubuntu Nerd Font Mono:size=15;3"
 font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=12;3"
 font-3 = "Font Awesome 6 Brands:pixelsize=13;4"
 
@@ -118,8 +118,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Ubuntu Light 5 Nerd Font:size=10:style=Bold;2"
-font-1 = "Ubuntu Mono 5 Nerd Font:size=15;3"
+font-0 = "Ubuntu Nerd Font:size=11:style=Bold;2"
+font-1 = "Ubuntu Nerd Font Mono:size=15;3"
 font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=16;4"
 
 modules-left = i3
@@ -136,8 +136,9 @@ wrapping-scroll = true
 
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.foreground-date}
+label-mode-background = ${colors.background}
+label-mode-underline = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%

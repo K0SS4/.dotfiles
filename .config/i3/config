@@ -45,7 +45,6 @@ bindsym $mod+Return exec --no-startup-id $term
 # kill focused window
 bindsym $mod+w kill
 
-bindsym Shift+F4 exec "/home/k0ss4/.local/bin/firefox-sync.sh atf5krpz.default-nightly; poweroff"
 bindsym Print exec --no-startup-id "maim -s -l --color=1,1,1,0.2 --format png /dev/stdout | xclip -selection clipboard -t image/png -i"
 
 # start dmenu (a program launcher)
@@ -103,6 +102,19 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec i3-msg exit
+
+# Power menu
+set $sysmenu "  [l]ogout - [r]eboot - [p]oweroff  "
+bindsym Shift+F4 mode $sysmenu
+
+mode $sysmenu {
+    bindsym l exit
+    bindsym p exec "systemctl poweroff"
+    bindsym r exec "systemctl reboot"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Shift+F4 mode "default"
+}
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
