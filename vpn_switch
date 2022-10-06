@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mullvad=$(nmcli con show --active | grep wg)
+mullvad=$(nmcli con show --active | grep mullvad)
 work=$(nmcli con show --active | grep vpn)
 
 if [ "$mullvad" != "" ]; then
