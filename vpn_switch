@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+mullvad=$(nmcli con show --active | grep wg)
+work=$(nmcli con show --active | grep vpn)
+
+if [ "$mullvad" != "" ]; then
+    mullvad disconnect;
+    nmcli con up id "Work VPN";
+elif [ "$work" != "" ]; then
+    nmcli con down id "Work VPN";
+    mullvad connect;
+else
+    mullvad reconnect;
+fi
+
