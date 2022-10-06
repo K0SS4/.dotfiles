@@ -38,6 +38,7 @@ foreground-updates = #c8bf00
 foreground-pipewire = #de9c3d
 foreground-network = #c8bf00
 foreground-kernel = #de9c3d
+foreground-vpn = #c8bf00
 foreground-date = #de9c3d
 foreground-active = #b79301
 background = #222222
@@ -81,7 +82,7 @@ font-3 = "Font Awesome 6 Brands:pixelsize=13;4"
 
 modules-left = i3
 modules-center = date
-modules-right = updates pipewire network kernel 
+modules-right = updates pipewire network kernel vpn
 
 tray-position = right
 tray-padding = 2
@@ -286,3 +287,14 @@ click-right = exec pavucontrol &
 click-left = ~/.config/polybar/scripts/sound --mute &
 scroll-up = ~/.config/polybar/scripts/sound --up &
 scroll-down = ~/.config/polybar/scripts/sound --down &
+
+[module/vpn]
+type = custom/script
+label = "%output%"
+format =   VPN: <label>
+format-padding = 4
+interval = 0.2
+format-foreground = ${colors.foreground-vpn}
+format-background = ${colors.background-alt}
+exec = ~/.config/polybar/scripts/vpn
+click-left = ~/.config/polybar/scripts/vpn --switch &
