@@ -29,6 +29,6 @@ elif [ "$work" != "" ]; then
     fi
 else
     #Shouldn't happen if you have mullvad auto-started and auto-connected
-    mullvad reconnect;
+    mullvad connect;
     echo "Mullvad";
 fi
