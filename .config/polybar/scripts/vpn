@@ -28,7 +28,5 @@ elif [ "$work" != "" ]; then
         echo "Work";
     fi
 else
-    #Shouldn't happen if you have mullvad auto-started and auto-connected
-    mullvad connect;
-    echo "Mullvad";
+    echo "None";
 fi

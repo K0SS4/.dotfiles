@@ -44,9 +44,9 @@ This is my personal setup. If you want to use it you can of course do that but I
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
 - the gputemp script is written for nvidia-smi,  
-- the cputemp script should be fine but idk,  
+- the cputemp script should be fine but idk(it searches for Tctl sensor),  
 - the updates script is written for arch-based distros specifically(and for paru as an aur helper),  
-- the network "module" in polybar/xmobar is set to enp34s0 interface  
+- the network module in polybar is set to enp42s0 interface  
 - the volume module in polybar is written for pipewire
 
 You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.

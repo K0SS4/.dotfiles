@@ -51,7 +51,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/i3first]
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:MONITOR:DP-4}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -96,7 +96,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/i3second]
-monitor = ${env:MONITOR:DP-5}
+monitor = ${env:MONITOR:DP-1}
 width = 100%
 height = 30
 ;offset-x = 1%
@@ -204,7 +204,7 @@ label-muted =     VOL: M
 
 [module/network]
 type = internal/network
-interface = enp34s0
+interface = enp42s0
 interval = 2
 label-connected =  %downspeed%  %upspeed%
 format-connected-padding = 5

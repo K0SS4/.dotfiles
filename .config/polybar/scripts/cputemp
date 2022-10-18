@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "$(sensors | grep Tdie | awk -F '+' '{ print $2 }')"
+echo "$(sensors | grep Tctl | awk -F '+' '{ print $2 }')"
