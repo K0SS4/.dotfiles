@@ -41,6 +41,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - nitrogen (for wallpaper)
 - maim (screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard)
+- playerctl (for manipulation media flow(pause, play etc.))
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
 - the gputemp script is written for nvidia-smi,  

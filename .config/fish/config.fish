@@ -26,28 +26,7 @@ set fish_color_command brcyan
 set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
 
-### FUNCTIONS ###
-
-# Function for creating a backup file
-# ex: backup file.txt
-# result: copies file as file.txt.bak
-function backup --argument filename
-    cp $filename $filename.bak
-end
-
-### END OF FUNCTIONS ###
-
-# root privileges
-alias doas="doas --"
-
-# windscribe
-alias conn='sudo systemctl start windscribe;sleep 1;windscribe connect'
-alias dis='windscribe disconnect; sudo systemctl stop windscribe'
-alias winstat='windscribe status'
-
-#firefox profile in ram
-#alias poweroff="/home/k0ss4/.local/bin/firefox-sync.sh pz8i377i.default-release >> /dev/null; poweroff"
-#alias reboot="/home/k0ss4/.local/bin/firefox-sync.sh pz8i377i.default-release >> /dev/null; reboot"
+alias sensors="sensors 2> /dev/null"
 
 #poweroff disk
 alias remove="udisksctl power-off -b"
@@ -90,7 +69,7 @@ alias jctl="journalctl -p 3 -xb"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
 ### RANDOM COLOR SCRIPT ###
-colorscript random
+#colorscript random
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source

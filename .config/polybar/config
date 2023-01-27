@@ -204,7 +204,7 @@ label-muted =     VOL: M
 
 [module/network]
 type = internal/network
-interface = enp42s0
+interface = br0
 interval = 2
 label-connected =  %downspeed%  %upspeed%
 format-connected-padding = 5
