@@ -6,14 +6,19 @@ work=$(nmcli con show --active | grep vpn)
 if [ "$mullvad" != "" ]; then
     if [ "$1" == "--switch" ]; then
         mullvad disconnect;
+        echo "None";
+    else
+        echo "Mullvad"
+    fi
+elif [ "$work" == "" ] && [ "$mullvad" == "" ]; then
+    if [ "$1" == "--switch" ]; then
         if [ "$2" == "-o" ]; then # o stands for output. Just for the sake of debugging
             nmcli con up id "Work VPN";
         else
             nmcli con up id "Work VPN" >> /dev/null;
         fi
-        echo "Work";
     else
-        echo "Mullvad"
+        echo "None";
     fi
 elif [ "$work" != "" ]; then
     if [ "$1" == "--switch" ]; then
