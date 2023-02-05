@@ -220,6 +220,7 @@ format-foreground = ${colors.foreground-updates}
 format-background = ${colors.background-alt}
 format-padding = 5
 label = %output%
+click-left = exec alacritty -e paru -Syu &
 
 interval = 600
 
