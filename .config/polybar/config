@@ -124,7 +124,7 @@ font-1 = "Ubuntu Nerd Font Mono:size=15;3"
 font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=16;4"
 
 modules-left = i3
-modules-right = cputemp gputemp memory
+modules-right = power cputemp gputemp memory
 
 cursor-click = pointer
 cursor-scroll = normal
@@ -273,7 +273,7 @@ format-padding = 5
 label = %output%
 
 tail = true
-interval = 3
+interval = 12
 
 [module/pipewire]
 type = custom/script

@@ -9,10 +9,12 @@ call plug#begin('~/.vim/plugged')
         Plug 'StanAngeloff/php.vim'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'tpope/vim-sleuth'
+        Plug 'tpope/vim-vinegar'
+        Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 syntax on
-colorscheme challenger_deep
+colorscheme dracula
 set filetype=dosini
 
 set tabstop=4
