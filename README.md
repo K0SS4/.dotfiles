@@ -37,7 +37,11 @@ This is my personal setup. If you want to use it you can of course do that but I
             - zsh-autosuggestions (for suggestions when you're typing in the terminal)
             - zsh-syntax-highlighting (for syntax highlighting when you're typing in the terminal)
 - neovim (my text editor)
-    - vim-plug (plugins manager for neovim)
+    - packer (plugins manager for neovim)
+    - lua (for the whole config)
+    - ccls (c++ language server)
+    - lua-language-server
+    - ripgrep (for live grep in telescope)
 - nitrogen (for wallpaper)
 - maim (screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard)
@@ -50,9 +54,14 @@ I hope I did not forget about something. You will probably have to adjust my pol
 - the network module in polybar is set to enp42s0 interface  
 - the volume module in polybar is written for pipewire
 
-You can probably remove the power script since it is connecting with my local smart socket and grabbing the output from there.
+You can probably remove the power script since it is connecting with my local homeassistant instance and grabbing the output from there.
 
 #Screenshots:  
+##Neovim
+![neovim-alpha](https://i.imgur.com/UqfJdFS.png)
+![Lsp and coq](https://i.imgur.com/DLV2Ynw.png)
+![telescope-ripgrep](https://i.imgur.com/4YdNFsf.png)
+
 ## xmonad
 ![screenshot of display 1](https://i.imgur.com/Ofsjoqp.png)
 ![screenshot of display 0](https://i.imgur.com/jUFx1jg.png)

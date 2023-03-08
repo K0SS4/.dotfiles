@@ -1,0 +1,24 @@
+{
+    "workspace.library": [
+        "/home/k0ss4/.config/nvim",
+        "/etc/xdg/nvim",
+        "/home/k0ss4/.local/share/nvim/site",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/dracula",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/mason.nvim",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/monokai.nvim",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/usr/share/nvim/site",
+        "/usr/share/nvim/site/pack/packer/start/packer.nvim",
+        "/usr/share/nvim/runtime",
+        "/usr/share/nvim/runtime/pack/dist/opt/matchit",
+        "/usr/lib/nvim",
+        "/home/k0ss4/.local/share/nvim/site/pack/packer/start/dracula/after",
+        "/usr/share/vim/vimfiles",
+        "${3rd}/luassert/library"
+    ]
+}
