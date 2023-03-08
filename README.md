@@ -56,8 +56,8 @@ I hope I did not forget about something. You will probably have to adjust my pol
 
 You can probably remove the power script since it is connecting with my local homeassistant instance and grabbing the output from there.
 
-#Screenshots:  
-##Neovim
+# Screenshots:  
+## Neovim
 ![neovim-alpha](https://i.imgur.com/UqfJdFS.png)
 ![Lsp and coq](https://i.imgur.com/DLV2Ynw.png)
 ![telescope-ripgrep](https://i.imgur.com/4YdNFsf.png)
