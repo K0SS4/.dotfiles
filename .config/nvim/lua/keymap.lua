@@ -1,63 +1,75 @@
-local opts = { noremap = true }
+------------------------------------------------------------------------------------------------
+------------------------------------------ KEYMAP.LUA ------------------------------------------
+------------------------------------------------------------------------------------------------
+
 local keymap = vim.api.nvim_set_keymap
 
--- Some lazy functions
+-------------------------------------- WORKFLOW --------------------------------------
+keymap('n', '<c-s>', ':w<CR>', {silent = true, noremap = true, desc = 'Save'})
+keymap('i', '<c-s>', '<Esc>:w<CR>a', {silent = true, noremap = true, desc = 'Save'})
 
-local function nkeymap(key, map)
-    keymap('n', key, map, opts)
+keymap('n', '<c-h>', '<c-w>h', {silent = true, noremap = true, desc = 'Move right'})
+keymap('n', '<c-j>', '<c-w>j', {silent = true, noremap = true, desc = 'Move down'})
+keymap('n', '<c-k>', '<c-w>k', {silent = true, noremap = true, desc = 'Move up'})
+keymap('n', '<c-l>', '<c-w>l', {silent = true, noremap = true, desc = 'Move left'})
+
+keymap('v', '<Tab>', '>', {silent = true, noremap = true, desc = 'Indent'})
+keymap('v', '<s-Tab>', '<', {silent = true, noremap = true, desc = 'Outdent'})
+
+-------------------------------------- ALPHA-NVIM --------------------------------------
+keymap('n', '<c-n>', ':Alpha<CR>', {silent = true, noremap = true, desc = 'Start alphavim'})
+
+-------------------------------------- NVIM-TREE --------------------------------------
+keymap('n', '<leader>tt', ':NvimTreeToggle<cr>', {silent = true, noremap = true, desc = 'Toggle NvimTree'})
+
+-------------------------------------- TROUBLE --------------------------------------
+keymap('n', '<leader>xx', ':TroubleToggle workspace_diagnostics<cr>', {silent = true, noremap = true, desc = 'Trouble Workspace'})
+keymap('n', '<leader>qf', ':TroubleToggle quickfix<cr><esc>', {silent = true, noremap = true, desc = 'Trouble Quickfix'})
+
+-------------------------------------- BARBAR --------------------------------------
+keymap('n', '<s-l>', ':BufferNext<cr>', {silent = true, noremap = true, desc = 'Next buffer'})
+keymap('n', '<s-h>', ':BufferPrevious<cr>', {silent = true, noremap = true, desc = 'Previous buffer'})
+keymap('n', '<s-w>', ':BufferClose<cr>', {silent = true, noremap = true, desc = 'Close current buffer'})
+-- Mapping alt+{1-9} to go to buffer
+for i=1,9 do
+    keymap('n', '<a-' .. i ..'>', ':BufferGoto ' .. i .. '<cr>', {silent = true, noremap = true, desc = 'Go to bufffer ' .. i})
 end
 
-local function vkeymap(key, map)
-    keymap('v', key, map, opts)
-end
+-------------------------------------- LSP --------------------------------------
+keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', {silent = true, noremap = true, desc = 'Go to definition'})
+keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', {silent = true, noremap = true, desc = 'Go to declaration'})
+keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', {silent = true, noremap = true, desc = 'Go to implementation'})
+keymap('n', 'gw', ':lua vim.lsp.buf.document_symbol()<CR>', {silent = true, noremap = true, desc = ''})
+keymap('n', 'gw', ':lua vim.lsp.buf.workspace_symbol()<CR>', {silent = true, noremap = true, desc = ''})
+keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', {silent = true, noremap = true, desc = 'Show references'})
+keymap('n', 'gt', ':lua vim.lsp.buf.type_definition()<CR>', {silent = true, noremap = true, desc = 'Go to type definition'})
+keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', {silent = true, noremap = true, desc = 'Show context'})
+keymap('n', '<c-s-k>', ':lua vim.lsp.buf.signature_help()<CR>', {silent = true, noremap = true, desc = ''})
+keymap('n', '<leader>af', ':lua vim.lsp.buf.code_action()<CR>', {silent = true, noremap = true, desc = ''})
+keymap('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', {silent = true, noremap = true, desc = 'Rename'})
 
-local function ikeymap(key, map)
-    keymap('i', key, map, opts)
-end
+-------------------------------------- DAP --------------------------------------
+keymap('n', '<F1>', ':lua require"dap".continue()<cr>', {silent = true, noremap = true, desc = 'Debugger: Continue'})
+keymap('n', '<F2>', ':lua require"dap".step_into()<cr>', {silent = true, noremap = true, desc = 'Debugger: Step Into'})
+keymap('n', '<F3>', ':lua require"dap".step_out()<cr>', {silent = true, noremap = true, desc = 'Debugger: Step Out'})
+keymap('n', '<F4>', ':lua require"dap".step_over()<cr>', {silent = true, noremap = true, desc = 'Debugger: Step Over'})
+keymap('n', '<F9>', ':lua require"dap".toggle_breakpoint()<cr>', {silent = true, noremap = true, desc = 'Debugger: Set breakpoint'})
+keymap('n', '<leader>sd', ':lua require"dap".close()<cr>', {silent = true, noremap = true, desc = 'Debugger: Stop'})
+keymap('n', '<C>', '<cmd>lua require("dapui").eval()<CR>', {silent = true, noremap = true, desc = ''})
+keymap('v', '<c-s-c>', '<cmd>lua require("dapui").eval()<CR>', {silent = true, noremap = true, desc = ''})
 
+-------------------------------------- CMAKE --------------------------------------
+keymap('', '<leader>cg', ':CMakeGenerate<CR>', {silent = true, noremap = true, desc = 'Generate CMake'})
+keymap('', '<leader>cb', ':CMakeBuild<CR>', {silent = true, noremap = true, desc = 'Build CMake'})
+keymap('', '<leader>cq', ':CMakeClose<CR>', {silent = true, noremap = true, desc = 'Close CMake'})
+keymap('', '<leader>cc', ':CMakeClean<CR>', {silent = true, noremap = true, desc = 'Clean CMake'})
 
--- Ctrl + S for saving
-nkeymap('<c-s>', ':w<CR>')
-ikeymap('<c-s>', '<Esc>:w<CR>a')
+-------------------------------------- TELESCOPE --------------------------------------
+keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({hidden = true})<CR>', {silent = true, noremap = true, desc = 'Find files'})
+keymap('n', '<leader>fk', '<cmd>lua require("telescope.builtin").keymaps()<CR>', {silent = true, noremap = true, desc = 'Show keymaps'})
+keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', {silent = true, noremap = true, desc = 'Live grep'})
+keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>', {silent = true, noremap = true, desc = 'Search buffers'})
+keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>', {silent = true, noremap = true, desc = 'Search help tags'})
 
--- Ctrl + h/j/k/l for cycling through splits
-nkeymap('<c-h>', '<c-w>h')
-nkeymap('<c-j>', '<c-w>j')
-nkeymap('<c-k>', '<c-w>k')
-nkeymap('<c-l>', '<c-w>l')
-
--- Ctrl + n opens alpha nvim
-nkeymap('<c-n>', ':Alpha<CR>')
-
--- Tab and Shift + Tab in visual mode
-vkeymap('<Tab>', '>')
-vkeymap('<s-Tab>', '<')
-
--- Lua LSP keymaps
-nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')
-nkeymap('gD', ':lua vim.lsp.buf.declaration()<cr>')
-nkeymap('gi', ':lua vim.lsp.buf.implementation()<cr>')
-nkeymap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
-nkeymap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
-nkeymap('gr', ':lua vim.lsp.buf.references()<cr>')
-nkeymap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
-nkeymap('K', ':lua vim.lsp.buf.hover()<cr>')
-nkeymap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
-nkeymap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
-nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
-
--- CMake
-keymap('', '<leader>cg', ':CMakeGenerate<cr>', {})
-keymap('', '<leader>cb', ':CMakeBuild<cr>', {})
-keymap('', '<leader>cq', ':CMakeClose<cr>', {})
-keymap('', '<leader>cc', ':CMakeClean<cr>', {})
-
--- Telescope
-nkeymap('<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>")
-nkeymap('<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-nkeymap('<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>")
-nkeymap('<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>")
-
--- floaterm
-vim.cmd[[let g:floaterm_keymap_toggle = '<Leader>f']]
-vim.cmd[[let g:floaterm_wintype = 'split']]
+-------------------------------------- FLOATERM --------------------------------------
+keymap('n', '<leader>t', ':FloatermNew<CR>', {silent = true, noremap = true, desc = 'Launch terminal'})

@@ -42,6 +42,8 @@ This is my personal setup. If you want to use it you can of course do that but I
     - ccls (c++ language server)
     - lua-language-server
     - ripgrep (for live grep in telescope)
+    - llvm and lldb (for C/C++/Rust DAP)
+    - cmake (for cmake integration)
 - nitrogen (for wallpaper)
 - maim (screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard)
@@ -58,9 +60,10 @@ You can probably remove the power script since it is connecting with my local ho
 
 # Screenshots:  
 ## Neovim
-![neovim-alpha](https://i.imgur.com/UqfJdFS.png)
-![Lsp and coq](https://i.imgur.com/DLV2Ynw.png)
-![telescope-ripgrep](https://i.imgur.com/4YdNFsf.png)
+![neovim-alpha](https://i.imgur.com/5XT76yn.png)
+![lsp and coq](https://i.imgur.com/u8iRjQ0.png)
+![dap and dapui](https://i.imgur.com/pRdPV6i.png)
+![telescope-keymaps](https://i.imgur.com/jbbKWyE.png)
 
 ## xmonad
 ![screenshot of display 1](https://i.imgur.com/Ofsjoqp.png)
