@@ -1,0 +1,43 @@
+{
+    "main": {
+        "prefix": "main",
+        "body": [
+            "#include <iostream>\n",
+            "int main()",
+            "{",
+            "\n\treturn 0;",
+            "}"
+        ],
+        "description": "Main function template."
+    },
+    "sfml-main": {
+        "prefix": "sfml-main",
+        "body": [
+            "#include <SFML/Graphics.hpp>\n",
+            "int main()",
+            "{",
+            "\tsf::RenderWindow window(sf::VideoMode(800,600), \"App\", sf::Style::Fullscreen);\n",
+            "\twhile(window.isOpen())",
+            "\t{",
+            "\t\tsf::Event event;\n",
+            "\t\twhile(window.pollEvent(event))",
+            "\t\t{",
+            "\t\t\tswitch(event.type)",
+            "\t\t\t{",
+            "\t\t\t\tcase sf::Event::Closed:",
+            "\t\t\t\t\twindow.close();",
+            "\t\t\t\t\tbreak;",
+            "\t\t\t\tdefault:",
+            "\t\t\t\t\tbreak;",
+            "\t\t\t}\n",
+            "\t\t\twindow.clear();",
+            "\t\t\twindow.display();",
+            "\t\t}",
+            "\t}\n",
+            "\treturn 0;",
+            "}"
+        ],
+        "description": "SFML main function template"
+    }
+}
+

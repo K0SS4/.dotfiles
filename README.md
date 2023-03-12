@@ -39,7 +39,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - neovim (my text editor)
     - packer (plugins manager for neovim)
     - lua (for the whole config)
-    - ccls (c++ language server)
+    - clangd (c++ language server)
     - lua-language-server
     - ripgrep (for live grep in telescope)
     - llvm and lldb (for C/C++/Rust DAP)

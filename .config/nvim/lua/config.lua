@@ -12,12 +12,26 @@ vim.opt.softtabstop = 4
 
 -- Line numbers
 vim.opt.number = true;
+vim.opt.relativenumber = false
+
+-- Incremental search
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+-------------------------------------- THEME --------------------------------------
 
 vim.cmd[[set path='.,/usr/include,,~/.config/nvim/lua/**,']]
 require('onedark').setup {
-    style = 'darker'
+    style = 'darker',
+    transparent = true,
+    term_color = true,
+    lualine = {
+        transparent = true, -- lualine center bar transparency
+    },
 }
 require('onedark').load()
+
+-------------------------------------- TELESCOPE --------------------------------------
 
 require('telescope').setup{
     defaults = {
@@ -85,7 +99,7 @@ require('lualine').setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff'},
-        lualine_c = {'filename'},
+        lualine_c = {''},
         lualine_x = {'diagnostics', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
@@ -172,26 +186,10 @@ require'bufferline'.setup {
     -- Sets the maximum buffer name length.
     maximum_length = 30,
 
-    -- If set, the letters for each buffer in buffer-pick mode will be
-    -- assigned based on their name. Otherwise or in case all letters are
-    -- already assigned, the behavior is to assign letters in order of
-    -- usability (see order below)
-    semantic_letters = true,
-
-    -- New buffer letters are assigned in this order. This order is
-    -- optimal for the qwerty keyboard layout but might need adjustement
-    -- for other layouts.
-    letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
-
     -- Sets the name of unnamed buffers. By default format is '[Buffer X]'
     -- where X is the buffer number. But only a static string is accepted here.
     no_name_title = nil,
 }
-
--------------------------------------- FLOATERM --------------------------------------
-
-vim.g.floaterm_wintype = 'split'
-vim.g.floaterm_height = 15
 
 -------------------------------------- AUTOPAIRS --------------------------------------
 
@@ -253,48 +251,127 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
--------------------------------------- LSP AND COQ --------------------------------------
+-------------------------------------- CMAKE --------------------------------------
 
-vim.g.coq_settings = { auto_start = 'shut-up' }
+vim.g.cmake_link_compile_commands = 1
+vim.g.cmake_statusline = 1
+vim.g.cmake_build_dir_location = 'build'
+vim.g.cmake_console_size = 10
+vim.g.cmake_console_position = 'topleft'
+
+-------------------------------------- CMP --------------------------------------
+
+local cmp = require'cmp'
+
+cmp.setup({
+    snippet = {
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+            vim.fn['vsnip#anonymous'](args.body)
+        end,
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp', keyword_length = 2 },
+        { name = 'vsnip' },
+    },
+    {
+        { name = 'buffer', keyword_length = 2 },
+    })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    },
+    {
+        { name = 'buffer' },
+    })
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    },
+    {
+        { name = 'cmdline' }
+    })
+})
+
+-- Disable popup in comments
+cmp.setup({
+    enabled = function()
+      -- disable completion in comments
+      local context = require 'cmp.config.context'
+      -- keep command mode completion enabled when cursor is in a comment
+      if vim.api.nvim_get_mode().mode == 'c' then
+        return true
+      else
+        return not context.in_treesitter_capture('comment')
+          and not context.in_syntax_group('Comment')
+      end
+    end
+})
+
+-------------------------------------- LSP  --------------------------------------
+
+-- CMP lspconfig integration
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp = require('lspconfig')
-local coq = require('coq')
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
-vim.cmd[[let g:cmake_link_compile_commands = 1]]
 
-lsp['lua_ls'].setup(
-    coq.lsp_ensure_capabilities({
-        capabilities = capabilities,
-        settings = {
-            Lua = {
-                runtime = {
-                    -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                    version = 'LuaJIT',
-                },
-                diagnostics = {
-                    -- Get the language server to recognize the `vim` global
-                    globals = {'vim', 'use'},
-                },
-                workspace = {
-                    library = vim.api.nvim_get_runtime_file('', true),
-                },
-                telemetry = {
-                    enable = false,
-                },
+lsp['lua_ls'].setup({
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim', 'use'},
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file('', true),
+                checkThirdParty = false,
+            },
+            telemetry = {
+                enable = false,
             },
         },
-    })
-)
+    },
+})
 
-lsp['ccls'].setup(
-    coq.lsp_ensure_capabilities({
+lsp['clangd'].setup({
         capabilities = capabilities,
-  })
-)
+})
+
 
 -------------------------------------- DAP ADAPTERS --------------------------------------
 
@@ -309,8 +386,7 @@ dap.adapters.lldb = {
 -------------------------------------- DAP CONFIGURATIONS --------------------------------------
 
 -- C/C++/Rust
-dap.configurations.cpp = {
-    {
+dap.configurations.cpp = {{
         env = function() -- By default lldb-vscode doesn't inherit the env variables from the parent. This enables inheritance
             local variables = {}
             for k, v in pairs(vim.fn.environ()) do
@@ -322,10 +398,25 @@ dap.configurations.cpp = {
         name = 'Launch',
         type = 'lldb',
         request = 'launch',
+        -- My weird function for searching build directory for executables when dap fires
         program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            local exec = ''
+            for dir in io.popen('file ' .. vim.fn.getcwd() .. '/build/Debug/*'):lines() do
+                local ft = {}
+                for k in string.gmatch(dir, '[^:]+') do table.insert(ft, k) end
+                ft[2] = string.gsub(ft[2], '%s', '')
+                if string.sub(ft[2], 1, 3) == 'ELF' then
+                    exec = ft[1]
+                    break
+                end
+            end
+            if exec == '' then
+                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            else
+                return exec
+            end
         end,
-        cwd = '${workspaceFolder}',
+        cwd = '${workspaceFolder}/build/Debug',
         stopOnEntry = false,
         args = {},
     },

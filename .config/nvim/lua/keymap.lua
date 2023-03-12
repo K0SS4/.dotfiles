@@ -4,7 +4,10 @@
 
 local keymap = vim.api.nvim_set_keymap
 
--------------------------------------- WORKFLOW --------------------------------------
+-- Leader key
+vim.g.mapleader = '<Space>'
+
+-------------------------------------- NATIVE --------------------------------------
 keymap('n', '<c-s>', ':w<CR>', {silent = true, noremap = true, desc = 'Save'})
 keymap('i', '<c-s>', '<Esc>:w<CR>a', {silent = true, noremap = true, desc = 'Save'})
 
@@ -15,6 +18,8 @@ keymap('n', '<c-l>', '<c-w>l', {silent = true, noremap = true, desc = 'Move left
 
 keymap('v', '<Tab>', '>', {silent = true, noremap = true, desc = 'Indent'})
 keymap('v', '<s-Tab>', '<', {silent = true, noremap = true, desc = 'Outdent'})
+
+keymap('n', '<leader>t', ':term<cr>', {silent = true, noremap = true, desc = 'Open terminal'})
 
 -------------------------------------- ALPHA-NVIM --------------------------------------
 keymap('n', '<c-n>', ':Alpha<CR>', {silent = true, noremap = true, desc = 'Start alphavim'})
@@ -63,6 +68,7 @@ keymap('', '<leader>cg', ':CMakeGenerate<CR>', {silent = true, noremap = true, d
 keymap('', '<leader>cb', ':CMakeBuild<CR>', {silent = true, noremap = true, desc = 'Build CMake'})
 keymap('', '<leader>cq', ':CMakeClose<CR>', {silent = true, noremap = true, desc = 'Close CMake'})
 keymap('', '<leader>cc', ':CMakeClean<CR>', {silent = true, noremap = true, desc = 'Clean CMake'})
+keymap('', '<leader>bd', ':lua Build_and_debug()<cr>', {silent = true, noremap = true, desc = 'Build and debug'})
 
 -------------------------------------- TELESCOPE --------------------------------------
 keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({hidden = true})<CR>', {silent = true, noremap = true, desc = 'Find files'})
@@ -70,6 +76,3 @@ keymap('n', '<leader>fk', '<cmd>lua require("telescope.builtin").keymaps()<CR>',
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', {silent = true, noremap = true, desc = 'Live grep'})
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>', {silent = true, noremap = true, desc = 'Search buffers'})
 keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>', {silent = true, noremap = true, desc = 'Search help tags'})
-
--------------------------------------- FLOATERM --------------------------------------
-keymap('n', '<leader>t', ':FloatermNew<CR>', {silent = true, noremap = true, desc = 'Launch terminal'})
