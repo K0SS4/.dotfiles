@@ -29,4 +29,5 @@ require('packer').startup(function()
     use 'romgrk/barbar.nvim'                                        -- Cool tabs in a bar
     use 'tpope/vim-fugitive'                                        -- Git wrapper
     use 'ThePrimeagen/vim-be-good'                                  -- Fun little vim game
+    use 'numToStr/Comment.nvim'                                     -- Comment engine(bulk line commenting etc.)
 end)

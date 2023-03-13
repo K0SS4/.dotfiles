@@ -251,6 +251,10 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
+-------------------------------------- COMMENT --------------------------------------
+
+require'Comment'.setup()
+
 -------------------------------------- CMAKE --------------------------------------
 
 vim.g.cmake_link_compile_commands = 1

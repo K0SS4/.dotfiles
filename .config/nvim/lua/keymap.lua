@@ -5,7 +5,7 @@
 local keymap = vim.api.nvim_set_keymap
 
 -- Leader key
-vim.g.mapleader = '<Space>'
+vim.g.mapleader = ' '
 
 -------------------------------------- NATIVE --------------------------------------
 keymap('n', '<c-s>', ':w<CR>', {silent = true, noremap = true, desc = 'Save'})
