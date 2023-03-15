@@ -242,7 +242,7 @@ require'trouble'.setup{
 
 require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or 'all'
-    ensure_installed = { 'c', 'cpp', 'c_sharp', 'cmake', 'diff', 'fish', 'json', 'python', 'regex', 'bash', 'lua', 'vim', 'help', 'query' },
+    ensure_installed = { 'c', 'cpp', 'c_sharp', 'cmake', 'diff', 'fish', 'gitignore', 'json', 'python', 'regex', 'bash', 'lua', 'vim', 'help', 'query', 'haskell', 'markdown', 'sql' },
     highlight = {
         enable = true,
     },
