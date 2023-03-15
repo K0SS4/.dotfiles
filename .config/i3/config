@@ -100,6 +100,12 @@ bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 
+# move to left monitor and focus
+bindsym $mod+Shift+Left move container to output left; focus output left
+
+# move to right monitor and focus
+bindsym $mod+Shift+Right move container to output right; focus output right
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -146,3 +152,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+#For SFML development
+for_window [class="SFML-App" instance="SFML-App"] floating enable
