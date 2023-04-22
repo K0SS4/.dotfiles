@@ -6,6 +6,7 @@
 - polybar
 - waybar
 - rofi
+- wofi
 - st
 - kitty
 - alacritty
@@ -25,7 +26,8 @@ This is my personal setup. If you want to use it you can of course do that but I
     - Ubuntu font family (polybar general font)
     - Font Awesome 6 Free (icons in the polybar)
     - Font Awesome 6 Brands (tux logo in the polybar)
-- rofi (applications launcher)  
+- rofi (applications launcher for i3)
+- wofi (applications launcher for hyprland)
 - For terminal
     - shell-color-scripts (for cool looking terminal. You can grab it from [here](https://gitlab.com/dwt1/shell-color-scripts) )  
     - fish (shell)
