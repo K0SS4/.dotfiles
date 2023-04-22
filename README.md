@@ -1,11 +1,10 @@
 # My custom Arch Linux dotfiles. 
 ### Includes configs for:
 - WMs:
-  - xmonad 
-  - i3-gaps
-  - awesomewm
+  - i3-gaps 
+  - Hyprland
 - polybar
-- xmobar
+- waybar
 - rofi
 - st
 - kitty
@@ -44,9 +43,13 @@ This is my personal setup. If you want to use it you can of course do that but I
     - ripgrep (for live grep in telescope)
     - llvm and lldb (for C/C++/Rust DAP)
     - cmake (for cmake integration)
-- nitrogen (for wallpaper)
-- maim (screenshot utility)
-- xclip (for copying selected screenshot area to the clipboard)
+- nitrogen (for i3 wallpaper)
+- hyprpaper (for Hyprland wallpaper)
+- maim (X screenshot utility)
+- xclip (for copying selected screenshot area to the clipboard - X only)
+- slurp (for selecting an area of desktop)
+- grim (for taking a wayland screenshot)
+- wl-copy (for copying the screen shot to a clipboard - Wayland only)
 - playerctl (for manipulation media flow(pause, play etc.))
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
@@ -65,14 +68,10 @@ You can probably remove the power script since it is connecting with my local ho
 ![dap and dapui](https://i.imgur.com/pRdPV6i.png)
 ![telescope-keymaps](https://i.imgur.com/jbbKWyE.png)
 
-## xmonad
-![screenshot of display 1](https://i.imgur.com/Ofsjoqp.png)
-![screenshot of display 0](https://i.imgur.com/jUFx1jg.png)
-
 ## i3-gaps
 ![screenshot of display 1](https://i.imgur.com/Ykif8Kt.png)
 ![screenshot of display 0](https://i.imgur.com/EzR77I8.png)
 
-## awesomewm
-![screenshot of display 1](https://i.imgur.com/NCSufy5.png)
-![screenshot of display 0](https://i.imgur.com/TflaaVj.png)
+## Hyprland
+![screenshot 1](https://i.imgur.com/i8xKqdL.png)
+![screenshot 2 with neovim](https://i.imgur.com/bmtWZmi.png)

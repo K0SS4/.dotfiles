@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-echo "$(sensors | grep Tdie | awk -F '+' '{ print $2 }')"
