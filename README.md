@@ -75,5 +75,5 @@ You can probably remove the power script since it is connecting with my local ho
 ![screenshot of display 0](https://i.imgur.com/EzR77I8.png)
 
 ## Hyprland
-![screenshot 1](https://i.imgur.com/i8xKqdL.png)
-![screenshot 2 with neovim](https://i.imgur.com/bmtWZmi.png)
+![screenshot 1](https://i.imgur.com/ctmO4Nh.png)
+![screenshot 2 with neovim](https://i.imgur.com/KQDmvut.png)
