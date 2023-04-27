@@ -2,7 +2,7 @@
 ### Includes configs for:
 - WMs:
   - i3-gaps 
-  - Hyprland
+  - sway
 - polybar
 - waybar
 - rofi
@@ -21,13 +21,14 @@ This is my personal setup. If you want to use it you can of course do that but I
 
 ## "Dependencies" (You'll have to check how to install them on your distro):  
 - betterlockscreen(Obvious I guess)  
+- swaylock(for screen locking on wayland)
 - For status bar:
     - lm_sensors (for CPU temperature in the status bar)
     - Ubuntu font family (polybar general font)
     - Font Awesome 6 Free (icons in the polybar)
     - Font Awesome 6 Brands (tux logo in the polybar)
 - rofi (applications launcher for i3)
-- wofi (applications launcher for hyprland)
+- wofi (applications launcher for sway)
 - For terminal
     - shell-color-scripts (for cool looking terminal. You can grab it from [here](https://gitlab.com/dwt1/shell-color-scripts) )  
     - fish (shell)
@@ -46,7 +47,8 @@ This is my personal setup. If you want to use it you can of course do that but I
     - llvm and lldb (for C/C++/Rust DAP)
     - cmake (for cmake integration)
 - nitrogen (for i3 wallpaper)
-- hyprpaper (for Hyprland wallpaper)
+- swaybg (for sway wallpaper)
+- swayidle (for idle actions)
 - maim (X screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard - X only)
 - slurp (for selecting an area of desktop)
@@ -74,6 +76,6 @@ You can probably remove the power script since it is connecting with my local ho
 ![screenshot of display 1](https://i.imgur.com/Ykif8Kt.png)
 ![screenshot of display 0](https://i.imgur.com/EzR77I8.png)
 
-## Hyprland
-![screenshot 1](https://i.imgur.com/ctmO4Nh.png)
-![screenshot 2 with neovim](https://i.imgur.com/KQDmvut.png)
+## sway
+![screenshot 1](https://i.imgur.com/yeU7kML.png)
+![screenshot 2 with neovim](https://i.imgur.com/e4kOKP3.png)

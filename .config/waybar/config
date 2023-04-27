@@ -3,19 +3,19 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
     "modules-right": ["custom/updates", "pulseaudio", "cpu", "memory", "battery", "tray"],
-    "wlr/workspaces": {
+    "sway/workspaces": {
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": ""
+            "1: WWW": "",
+            "2: DEV": "",
+            "3: SYS": "",
+            "4: DOC": "",
+            "5: FUN": "",
+            "6: MSC": ""
         }
     },
     "tray": {

@@ -36,6 +36,8 @@ alias cronlog='sudo journalctl | grep CRON'
 
 #my ssh aliases
 source $HOME/.ssh-aliases
+#poweroff script(contains homeassistant token)
+source $HOME/.poweroff
 
 # navigation
 alias ..='cd ..'

@@ -1,0 +1,168 @@
+#gaps
+for_window [class=".*"] border pixel 3
+gaps inner 20
+
+output eDP-1 pos 0 0 mode 1920x1080@60Hz scale 1.0
+output HDMI-A-1 pos 1920 0 mode 2560x1440@75Hz scale 1.0
+
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+input * {
+    xkb_layout "pl"
+    xkb_model "pc104"
+}
+
+#Variables
+set $mod Mod4
+set $term alacritty
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 1: WWW
+set $ws2 2: DEV
+set $ws3 3: SYS
+set $ws4 4: DOC
+set $ws5 5: FUN
+set $ws6 6: MSC
+
+#Autostart
+exec --no-startup-id lxsession
+exec --no-startup-id nm-applet
+exec --no-startup-id waybar
+exec --no-startup-id swayidle
+exec --no-startup-id "swaybg -i $HOME/.images/crow_moon.jpg"
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 5
+bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute
+
+# Control media playback
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+
+bindsym $mod+control+l exec --no-startup-id "swaylock -c 000000"
+
+# use Mouse+Mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id $term
+
+# kill focused window
+bindsym $mod+w kill
+
+bindsym Print exec --no-startup-id "slurp -b ffffff20 | grim -g - - | wl-copy"
+
+# start wofi
+bindsym $mod+Shift+Return exec --no-startup-id "wofi -a -S drun -p Run: -i -I"
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+space fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+z layout stacking
+bindsym $mod+x layout tabbed
+bindsym $mod+s layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+f floating toggle
+
+# move the currently focused window to the scratchpad
+bindsym $mod+F12 move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym F12 scratchpad show
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+
+# move to left monitor and focus
+bindsym $mod+Shift+Left move container to output left; focus output left
+
+# move to right monitor and focus
+bindsym $mod+Shift+Right move container to output right; focus output right
+
+# reload sway and waybar config
+bindsym $mod+Shift+r exec --no-startup-id "$HOME/.config/sway/scripts/reload.sh"
+# exit sway
+bindsym $mod+Shift+q exit
+
+# Power menu
+set $sysmenu "  [l]ogout - [r]eboot - [p]oweroff  "
+bindsym Shift+F4 mode $sysmenu
+
+mode $sysmenu {
+    bindsym l exit
+    bindsym p exec "systemctl poweroff"
+    bindsym r exec "systemctl reboot"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Shift+F4 mode "default"
+}
+
+# resize window (you can also use the mouse for that)
+mode "  resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "  resize"
+
+#For SFML development
+for_window [class="SFML-App" instance="SFML-App"] floating enable

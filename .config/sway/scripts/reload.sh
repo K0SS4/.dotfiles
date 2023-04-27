@@ -8,3 +8,5 @@ elif [[ $(pgrep -x "waybar") = "" ]];
 then
 waybar --config ~/.config/waybar/config > /dev/null 2>&1 &
 fi
+
+swaymsg reload;
