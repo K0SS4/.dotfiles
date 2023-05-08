@@ -1,0 +1,30 @@
+.git
+.cfg
+.cache
+.cargo
+.ccls-cache
+Debug
+Release
+CMakeFiles
+.vscode
+.dosbox
+.gnupg
+.Heaven
+.icons
+.java
+.lazarus
+.local
+.mozilla
+.nv
+.paradoxlauncher
+.pki
+.ssh
+.steam
+.vim
+.vscode-oss
+.xmonad
+.config/discord
+.config/libreoffice
+.config/Code - OSS
+.config/Microsoft
+.config/Mullvad VPN

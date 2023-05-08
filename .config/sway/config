@@ -130,7 +130,7 @@ bindsym Shift+F4 mode $sysmenu
 
 mode $sysmenu {
     bindsym l exit
-    bindsym p exec "poweroff"
+    bindsym p exec "fish -c poweroff"
     bindsym r exec "systemctl reboot"
     bindsym Return mode "default"
     bindsym Escape mode "default"
