@@ -15,8 +15,6 @@
 - starship
 - neovim
 
-## This setup includes GreenWithEnvy database wich has my GPU overclocking profile. I receommend you to remove that file(.config/gwe/gwe.db) and I don't take any responsibility if you won't.
-
 This is my personal setup. If you want to use it you can of course do that but I don't take any responsibility if anything bad happens(it shouldn't tho).
 
 ## "Dependencies" (You'll have to check how to install them on your distro):  
@@ -57,8 +55,8 @@ This is my personal setup. If you want to use it you can of course do that but I
 - playerctl (for manipulation media flow(pause, play etc.))
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
-- the gputemp script is written for nvidia-smi,  
-- the cputemp script should be fine but idk(it searches for Tctl sensor),  
+- the gputemp script searches for "edge" in sensors,  
+- the cputemp script searches for "Tctl" in sensors,  
 - the updates script is written for arch-based distros specifically(and for paru as an aur helper),  
 - the network module in polybar is set to enp42s0 interface  
 - the volume module in polybar is written for pipewire

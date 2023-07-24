@@ -383,16 +383,16 @@ cmp.setup({
 -------------------------------------- LSP  --------------------------------------
 
 -- CMP lspconfig integration
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local cap = require('cmp_nvim_lsp').default_capabilities()
 local lsp = require('lspconfig')
 
-capabilities.textDocument.foldingRange = {
+cap.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
 
 lsp['lua_ls'].setup({
-    capabilities = capabilities,
+    capabilities = cap,
     settings = {
         Lua = {
             runtime = {
@@ -415,7 +415,11 @@ lsp['lua_ls'].setup({
 })
 
 lsp['clangd'].setup({
-        capabilities = capabilities,
+        capabilities = cap,
+})
+
+lsp['rust_analyzer'].setup({
+    capabilities = cap,
 })
 
 

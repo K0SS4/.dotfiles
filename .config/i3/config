@@ -155,3 +155,4 @@ bindsym $mod+r mode "resize"
 
 #For SFML development
 for_window [class="SFML-App" instance="SFML-App"] floating enable
+for_window [class="SFML-App" instance="SFML-App"] move position center

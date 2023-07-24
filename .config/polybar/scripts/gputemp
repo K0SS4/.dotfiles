@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "$(nvidia-smi --query-gpu=temperature.gpu --format=csv | sed '1d')°C"
+echo "$(sensors | grep edge | awk -F ' ' '{ print $2 }' | cut -c 2-)"

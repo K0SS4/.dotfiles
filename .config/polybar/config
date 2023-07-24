@@ -51,7 +51,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/i3first]
-monitor = ${env:MONITOR:DP-4}
+monitor = ${env:MONITOR:DisplayPort-0}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -82,7 +82,7 @@ font-3 = "Font Awesome 6 Brands:pixelsize=13;4"
 
 modules-left = i3
 modules-center = date
-modules-right = updates pipewire network kernel vpn
+modules-right = updates pipewire network kernel
 
 tray-position = right
 tray-padding = 2
@@ -96,7 +96,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/i3second]
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:HDMI-A-0}
 width = 100%
 height = 30
 ;offset-x = 1%
@@ -273,7 +273,7 @@ format-padding = 5
 label = %output%
 
 tail = true
-interval = 12
+interval = 6
 
 [module/pipewire]
 type = custom/script
