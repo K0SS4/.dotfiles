@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-echo "$(($(checkupdates | wc -l)+$(paru -Qua | wc -l)))"
+normal=$(pacman -Qu | wc -l)
+aur=$(paru -Qua | wc -l)
+echo "$(($normal+$aur))"
 
