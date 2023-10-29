@@ -36,8 +36,6 @@ alias cronlog='sudo journalctl | grep CRON'
 
 #my ssh aliases
 source $HOME/.ssh-aliases
-#poweroff script(contains homeassistant token)
-source $HOME/.poweroff
 
 # navigation
 alias ..='cd ..'
@@ -71,7 +69,7 @@ alias jctl="journalctl -p 3 -xb"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
 ### RANDOM COLOR SCRIPT ###
-#colorscript random
+colorscript random
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source

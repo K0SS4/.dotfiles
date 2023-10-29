@@ -30,4 +30,5 @@ require('packer').startup(function()
     use 'tpope/vim-fugitive'                                        -- Git wrapper
     use 'ThePrimeagen/vim-be-good'                                  -- Fun little vim game
     use 'numToStr/Comment.nvim'                                     -- Comment engine(bulk line commenting etc.)
+    use 'theRealCarneiro/hyprland-vim-syntax'                       -- Hyprland config syntax
 end)

@@ -33,7 +33,7 @@ set $ws6 6: MSC
 #Autostart
 exec --no-startup-id lxsession
 exec --no-startup-id nm-applet
-exec --no-startup-id waybar
+exec --no-startup-id waybar -c ~/.config/waybar/config-sway -s ~/.config/waybar/style-sway.css
 exec --no-startup-id swayidle
 exec --no-startup-id "swaybg -i $HOME/.images/crow_moon.jpg"
 
