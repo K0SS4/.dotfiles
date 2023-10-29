@@ -1,0 +1,101 @@
+@define-color primary #0b0c38;
+@define-color secondary #020569;
+@define-color wactive #1a1b57;
+@define-color winactive #202296;
+
+* {
+    font-family: FontAwesome, Ubuntu Mono, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+window#waybar {
+    background-color: rgb(55, 58, 64);
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#custom-power,
+#custom-gputemp,
+#custom-cputemp,
+#custom-updates,
+#clock,
+#battery,
+#cpu,
+#memory,
+#pulseaudio,
+#tray{
+    font-weight: 900;
+    padding: 2px 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: @winactive;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    background-color: @wactive;
+    font-weight: 400;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+    font-weight: 400;
+}
+
+#custom-power,
+#memory,
+#pulseaudio,
+#custom-gputemp {
+    background-color: @primary;
+}
+
+#cpu,
+#clock,
+#custom-updates,
+#custom-cputemp {
+    background-color: @secondary;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#tray {
+    background-color: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}

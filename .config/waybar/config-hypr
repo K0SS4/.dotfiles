@@ -1,0 +1,99 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35, // Waybar height (to be removed for auto height)
+    "margin-left": 5,
+    "margin-rigth": 5,
+    "margin-top": 2,
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/power", "custom/cputemp", "custom/gputemp", "custom/updates", "pulseaudio", "cpu", "memory", "tray"],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
+        },
+        "all-outputs": true,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%d %b    %H:%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 60
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false,
+        "interval": 10
+    },
+    "memory": {
+        "format": "{}% ",
+        "tooltip-format": "{used:0.1f}/{total:0.1f} GB",
+        "interval": 10
+    },
+    "battery": {
+        "interval": 120,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    //"network": {
+    //    "interval": 3,
+    //    //"interface": "enp1s0", // (Optional) To force the use of this interface
+    //    "format": "{bandwidthDownBytes}   {bandwidthUpBytes} ",
+    //    "tooltip-format": "{ifname} - {ipaddr}",
+    //},
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{volume}% <span size='16pt' rise='-2000'>{icon}</span>",
+        "format-muted": "<span size='16pt' rise='-2000'></span>",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/updates": {
+        "exec": "$HOME/.config/polybar/scripts/updates",
+        "exec-if": "exit 0",
+        "interval": 1800,
+        "format": "{} ",
+        "on-click": "alacritty -e paru -Syu; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8
+    },
+    "custom/gputemp": {
+        "exec": "$HOME/.config/polybar/scripts/gputemp",
+        "exec-if": "exit 0",
+        "interval": 3,
+        "format": "{} "
+    },
+    "custom/cputemp": {
+        "exec": "$HOME/.config/polybar/scripts/cputemp",
+        "exec-if": "exit 0",
+        "interval": 3,
+        "format": "{} "
+    },
+    "custom/power": {
+        "exec": "$HOME/.power.sh",
+        "exec-if": "exit 0",
+        "interval": 6,
+        "format": "{} "
+    }
+}
+
