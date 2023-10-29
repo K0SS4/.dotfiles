@@ -28,9 +28,9 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%d %b    %H:%m}",
+        "format": "{:%d %b    %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "interval": 60
+        "interval": 30
     },
     "cpu": {
         "format": "{usage}% ",
