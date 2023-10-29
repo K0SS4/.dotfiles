@@ -10,6 +10,7 @@ set TERM "xterm-256color"                         # Sets the terminal type
 set EDITOR "nvim"                                 # $EDITOR use Emacs in terminal
 
 ### SET MANPAGER
+set -x MANROFFOPT "-c"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 ### SET EITHER DEFAULT EMACS MODE OR VI MODE ###
