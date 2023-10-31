@@ -4,7 +4,7 @@
 
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'                                    -- Package manager
-    use 'navarasu/onedark.nvim'                                     -- Onedark themes collection
+    use 'monsonjeremy/onedark.nvim'                                 -- Onedark theme
     use 'nvim-tree/nvim-tree.lua'                                   -- File explorer
     use 'nvim-tree/nvim-web-devicons'                               -- Files icons(requirement for a couple of packages listed here)
     use 'nvim-lua/plenary.nvim'                                     -- Lua functions collection(requirement for a couple of packages listed here)
