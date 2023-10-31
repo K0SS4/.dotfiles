@@ -44,8 +44,10 @@ This is my personal setup. If you want to use it you can of course do that but I
     - ripgrep (for live grep in telescope)
     - llvm and lldb (for C/C++/Rust DAP)
     - cmake (for cmake integration)
+    - nerdfonts (icons needed for barbar)
 - nitrogen (for i3 wallpaper)
 - swaybg (for sway wallpaper)
+- hyprpaper (for hyprland wallpaper)
 - swayidle (for idle actions)
 - maim (X screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard - X only)
@@ -53,6 +55,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - grim (for taking a wayland screenshot)
 - wl-copy (for copying the screen shot to a clipboard - Wayland only)
 - playerctl (for manipulation media flow(pause, play etc.))
+- [qt-powermenu](https://github.com/k0ss4/qt-powermenu)
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
 - the gputemp script searches for "edge" in sensors,  
@@ -69,6 +72,10 @@ You can probably remove the power script since it is connecting with my local ho
 ![lsp and coq](https://i.imgur.com/u8iRjQ0.png)
 ![dap and dapui](https://i.imgur.com/pRdPV6i.png)
 ![telescope-keymaps](https://i.imgur.com/jbbKWyE.png)
+
+## Hyprland
+![screenshot1](https://i.imgur.com/KotPaTm.png)
+![screenshot2](https://i.imgur.com/4bN5HnW.png)
 
 ## i3-gaps
 ![screenshot of display 1](https://i.imgur.com/Ykif8Kt.png)
