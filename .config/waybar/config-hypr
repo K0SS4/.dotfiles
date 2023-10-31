@@ -8,7 +8,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/power", "custom/cputemp", "custom/gputemp", "custom/updates", "pulseaudio", "cpu", "memory", "tray"],
+    "modules-right": ["custom/power", "custom/cputemp", "custom/gputemp", "custom/pacman", "pulseaudio", "cpu", "memory", "tray"],
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -69,13 +69,16 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/updates": {
-        "exec": "$HOME/.config/polybar/scripts/updates",
-        "exec-if": "exit 0",
-        "interval": 1800,
-        "format": "{} ",
+    "custom/pacman": {
+        "format": "{icon}{}",
         "on-click": "alacritty -e paru -Syu; pkill -SIGRTMIN+8 waybar", // update system
-        "signal": 8
+        "return-type": "json",
+        "format-icons": {
+          "pending-updates": " ",
+          "updated": ""
+        },
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates"
     },
     "custom/gputemp": {
         "exec": "$HOME/.config/polybar/scripts/gputemp",

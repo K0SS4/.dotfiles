@@ -25,6 +25,7 @@ This is my personal setup. If you want to use it you can of course do that but I
     - Ubuntu font family (polybar general font)
     - Font Awesome 6 Free (icons in the polybar)
     - Font Awesome 6 Brands (tux logo in the polybar)
+    - [waybar-updates](https://github.com/L11R/waybar-updates) (for archlinux updates counter)
 - rofi (applications launcher for i3)
 - wofi (applications launcher for sway)
 - For terminal

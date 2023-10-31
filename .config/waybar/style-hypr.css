@@ -31,7 +31,7 @@ button:hover {
 #custom-power,
 #custom-gputemp,
 #custom-cputemp,
-#custom-updates,
+#custom-pacman,
 #clock,
 #battery,
 #cpu,
@@ -75,7 +75,7 @@ button:hover {
 
 #cpu,
 #clock,
-#custom-updates,
+#custom-pacman,
 #custom-cputemp {
     background-color: @secondary;
 }
@@ -85,6 +85,22 @@ button:hover {
         background-color: #ffffff;
         color: #000000;
     }
+}
+
+@keyframes blink-update {
+    to {
+        background-color: dodgerblue;
+    }
+}
+
+#custom-pacman {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#custom-pacman.pending-updates {
+    animation-name: blink-update;
+    animation-duration: 3s;
 }
 
 #tray {
