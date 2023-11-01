@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-normal=$(pacman -Qu | wc -l)
-aur=$(paru -Qua | wc -l)
+normal=$(pacman -Qu | wc -l);
+aur=$(paru -Qua | wc -l);
 echo "$(($normal+$aur))"
 

@@ -3,12 +3,12 @@
     "position": "top",
     "height": 35, // Waybar height (to be removed for auto height)
     "margin-left": 5,
-    "margin-rigth": 5,
-    "margin-top": 2,
+    "margin-right": 5,
+    "margin-top": 5,
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/power", "custom/cputemp", "custom/gputemp", "custom/pacman", "pulseaudio", "cpu", "memory", "tray"],
+    "modules-right": ["custom/power", "custom/cputemp", "custom/gputemp", "custom/pacman", "pulseaudio", "cpu", "memory", "custom/notification", "tray"],
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -97,6 +97,26 @@
         "exec-if": "exit 0",
         "interval": 6,
         "format": "{} "
-    }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{} {icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+  },
 }
 

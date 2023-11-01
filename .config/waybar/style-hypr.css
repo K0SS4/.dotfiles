@@ -28,6 +28,7 @@ button:hover {
     box-shadow: inset 0 -3px #ffffff;
 }
 
+#custom-notification,
 #custom-power,
 #custom-gputemp,
 #custom-cputemp,
@@ -49,6 +50,7 @@ button:hover {
 }
 
 #workspaces button {
+    margin-left: 5px;
     padding: 0 7px;
     background-color: @winactive;
     border-radius: 20px;
@@ -66,17 +68,18 @@ button:hover {
     font-weight: 400;
 }
 
+#cpu,
+#clock,
+#custom-pacman,
+#custom-cputemp,
+#custom-notification{
+    background-color: @primary;
+}
+
 #custom-power,
 #memory,
 #pulseaudio,
 #custom-gputemp {
-    background-color: @primary;
-}
-
-#cpu,
-#clock,
-#custom-pacman,
-#custom-cputemp {
     background-color: @secondary;
 }
 

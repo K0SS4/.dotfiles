@@ -14,6 +14,7 @@
 - fish
 - starship
 - neovim
+- swaync
 
 This is my personal setup. If you want to use it you can of course do that but I don't take any responsibility if anything bad happens(it shouldn't tho).
 
@@ -25,7 +26,7 @@ This is my personal setup. If you want to use it you can of course do that but I
     - Ubuntu font family (polybar general font)
     - Font Awesome 6 Free (icons in the polybar)
     - Font Awesome 6 Brands (tux logo in the polybar)
-    - [waybar-updates](https://github.com/L11R/waybar-updates) (for archlinux updates counter)
+    - [waybar-updates](https://github.com/L11R/waybar-updates) (for archlinux updates counter in waybar)
 - rofi (applications launcher for i3)
 - wofi (applications launcher for sway)
 - For terminal
@@ -57,6 +58,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - wl-copy (for copying the screen shot to a clipboard - Wayland only)
 - playerctl (for manipulation media flow(pause, play etc.))
 - [qt-powermenu](https://github.com/k0ss4/qt-powermenu)
+- swaync (notification system for wayland)
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
 - the gputemp script searches for "edge" in sensors,  
