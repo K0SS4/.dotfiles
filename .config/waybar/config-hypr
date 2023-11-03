@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35, // Waybar height (to be removed for auto height)
+    "height": 36, // Waybar height (to be removed for auto height)
     "margin-left": 5,
     "margin-right": 5,
     "margin-top": 5,
@@ -114,8 +114,8 @@
         "return-type": "json",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
+        "on-click": "sleep .1 && swaync-client -t -sw",
+        "on-click-right": "sleep .1 && swaync-client -d -sw",
         "escape": true
   },
 }
