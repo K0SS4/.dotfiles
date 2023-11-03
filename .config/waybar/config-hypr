@@ -116,6 +116,7 @@
         "exec": "swaync-client -swb",
         "on-click": "sleep .1 && swaync-client -t -sw",
         "on-click-right": "sleep .1 && swaync-client -d -sw",
+        "on-click-middle": "sleep .1 && swaync-client -C",
         "escape": true
   },
 }
