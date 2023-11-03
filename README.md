@@ -30,7 +30,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - rofi (applications launcher for i3)
 - wofi (applications launcher for sway)
 - For terminal
-    - shell-color-scripts (for cool looking terminal. You can grab it from [here](https://gitlab.com/dwt1/shell-color-scripts) )  
+    - [shell-color-scripts](https://gitlab.com/dwt1/shell-color-scripts) (for cool looking terminal)  
     - fish (shell)
         - starship prompt
     - zsh (shell)      
@@ -57,7 +57,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - grim (for taking a wayland screenshot)
 - wl-copy (for copying the screen shot to a clipboard - Wayland only)
 - playerctl (for manipulation media flow(pause, play etc.))
-- [qt-powermenu](https://github.com/k0ss4/qt-powermenu)
+- [qt-powermenu](https://github.com/k0ss4/qt-powermenu) (my custom power menu)
 - swaync (notification system for wayland)
 
 I hope I did not forget about something. You will probably have to adjust my polybar/xmobar scripts for example:  
@@ -77,8 +77,8 @@ You can probably remove the power script since it is connecting with my local ho
 ![telescope-keymaps](https://i.imgur.com/jbbKWyE.png)
 
 ## Hyprland
-![screenshot1](https://i.imgur.com/KotPaTm.png)
-![screenshot2](https://i.imgur.com/4bN5HnW.png)
+![screenshot1](https://i.imgur.com/1YsRzYV.png)
+![screenshot2](https://i.imgur.com/Chk3OKC.png)
 
 ## i3-gaps
 ![screenshot of display 1](https://i.imgur.com/Ykif8Kt.png)
