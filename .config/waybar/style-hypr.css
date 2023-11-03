@@ -68,17 +68,17 @@ button:hover {
     font-weight: 400;
 }
 
-#cpu,
 #clock,
 #custom-pacman,
 #custom-cputemp,
-#custom-notification{
+#pulseaudio,
+#memory{
     background-color: @primary;
 }
 
 #custom-power,
-#memory,
-#pulseaudio,
+#cpu,
+#custom-notification,
 #custom-gputemp {
     background-color: @secondary;
 }
