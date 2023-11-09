@@ -43,6 +43,8 @@ This is my personal setup. If you want to use it you can of course do that but I
     - lua (for the whole config)
     - clangd (c++ language server)
     - lua-language-server
+    - bash-language-server
+    - shellcheck (bash language server linting)
     - ripgrep (for live grep in telescope)
     - llvm and lldb (for C/C++/Rust DAP)
     - cmake (for cmake integration)
