@@ -31,4 +31,5 @@ require('packer').startup(function()
     use 'ThePrimeagen/vim-be-good'                                  -- Fun little vim game
     use 'numToStr/Comment.nvim'                                     -- Comment engine(bulk line commenting etc.)
     use 'theRealCarneiro/hyprland-vim-syntax'                       -- Hyprland config syntax
+    use 'github/copilot.vim'                                        -- Github copilot
 end)
