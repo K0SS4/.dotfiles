@@ -21,16 +21,10 @@ vim.opt.incsearch = true
 -------------------------------------- THEME --------------------------------------
 
 vim.cmd[[set path='.,/usr/include,,~/.config/nvim/lua/**,']]
-require('onedark').setup {
-    style = 'darker',
-    transparent = true,
-    term_color = true,
-    lualine = {
-        transparent = true, -- lualine center bar transparency
-    },
-}
-require('onedark').load()
-
+require('onedark').setup ({
+    transparent = true
+})
+vim.cmd[[colorscheme onedark]]
 -------------------------------------- TELESCOPE --------------------------------------
 
 require('telescope').setup{
@@ -81,7 +75,7 @@ require('nvim-tree').setup({
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'dracula',
+        theme = 'onedark',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
@@ -160,7 +154,7 @@ require'barbar'.setup {
     -- Configure the base icons on the bufferline.
     buffer_index = false,
     buffer_number = false,
-    button = '',
+    button = '',
     -- Enables / disables diagnostic symbols
     diagnostics = {
       [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
@@ -284,7 +278,7 @@ require'trouble'.setup{
 
 require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or 'all'
-    ensure_installed = { 'c', 'cpp', 'c_sharp', 'cmake', 'diff', 'fish', 'gitignore', 'json', 'python', 'regex', 'bash', 'lua', 'vim', 'query', 'haskell', 'markdown', 'sql' },
+    ensure_installed = { 'c', 'cpp', 'c_sharp', 'cmake', 'diff', 'fish', 'gitignore', 'json', 'python', 'regex', 'bash', 'lua', 'vim', 'query', 'haskell', 'markdown', 'sql', 'json' },
     highlight = {
         enable = true,
     },

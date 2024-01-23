@@ -4,7 +4,7 @@
 
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'                                    -- Package manager
-    use 'navarasu/onedark.nvim'                                     -- Onedark themes collection
+    use 'monsonjeremy/onedark.nvim'                                 -- Onedark theme
     use 'nvim-tree/nvim-tree.lua'                                   -- File explorer
     use 'nvim-tree/nvim-web-devicons'                               -- Files icons(requirement for a couple of packages listed here)
     use 'nvim-lua/plenary.nvim'                                     -- Lua functions collection(requirement for a couple of packages listed here)
@@ -30,4 +30,6 @@ require('packer').startup(function()
     use 'tpope/vim-fugitive'                                        -- Git wrapper
     use 'ThePrimeagen/vim-be-good'                                  -- Fun little vim game
     use 'numToStr/Comment.nvim'                                     -- Comment engine(bulk line commenting etc.)
+    use 'theRealCarneiro/hyprland-vim-syntax'                       -- Hyprland config syntax
+    use 'github/copilot.vim'                                        -- Github copilot
 end)
