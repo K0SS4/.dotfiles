@@ -23,6 +23,7 @@ require('packer').startup(function()
     use 'hrsh7th/vim-vsnip'                                         -- Snippet engine
     use 'mfussenegger/nvim-dap'                                     -- Debugger adapter protocol(for debugging)
     use 'rcarriga/nvim-dap-ui'                                      -- UI for Dap
+    use 'nvim-neotest/nvim-nio'                                     -- For DAP UI
     use 'theHamsta/nvim-dap-virtual-text'                           -- Objects evaluation displayed next to the object when debugging code
     use 'cdelledonne/vim-cmake'                                     -- CMake integration
     use 'windwp/nvim-autopairs'                                     -- Automatically closes your brackets, apostrophes, quotations etc.
