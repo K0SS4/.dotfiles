@@ -1,5 +1,5 @@
 {
-    "output": "HDMI-A-1",
+    "output": "DP-2",
     "modules-right": ["custom/power", "custom/cputemp", "custom/gputemp", "pulseaudio", "cpu", "memory", "custom/notification", "tray"],
     "include": "~/.config/waybar/config-hypr"
 }
