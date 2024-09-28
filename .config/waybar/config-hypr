@@ -30,6 +30,7 @@
     "clock": {
         "format": " {:%d %b    %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "timezone": "Europe/Warsaw",
         "interval": 30
     },
     "cpu": {
@@ -70,7 +71,7 @@
         "on-click": "pavucontrol"
     },
     "custom/pacman": {
-        "format": "{icon}{}",
+        "format": "{icon}{0}",
         "on-click": "alacritty -e paru -Syu; pkill -SIGRTMIN+8 waybar", // update system
         "return-type": "json",
         "format-icons": {
