@@ -10,6 +10,7 @@ set TERM "xterm-256color"                         # Sets the terminal type
 set EDITOR "nvim"                                 # $EDITOR use Emacs in terminal
 
 ### SET MANPAGER
+set -x MANROFFOPT "-c"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 ### SET EITHER DEFAULT EMACS MODE OR VI MODE ###
@@ -26,6 +27,9 @@ set fish_color_command brcyan
 set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
 
+#poweroff script(contains homeassistant token)
+source $HOME/.poweroff
+
 alias sensors="sensors 2> /dev/null"
 
 #poweroff disk
@@ -36,8 +40,6 @@ alias cronlog='sudo journalctl | grep CRON'
 
 #my ssh aliases
 source $HOME/.ssh-aliases
-#poweroff script(contains homeassistant token)
-source $HOME/.poweroff
 
 # navigation
 alias ..='cd ..'
@@ -71,7 +73,7 @@ alias jctl="journalctl -p 3 -xb"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
 ### RANDOM COLOR SCRIPT ###
-#colorscript random
+colorscript random
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
