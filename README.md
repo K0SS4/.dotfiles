@@ -52,7 +52,7 @@ This is my personal setup. If you want to use it you can of course do that but I
 - nitrogen (for i3 wallpaper)
 - swaybg (for sway wallpaper)
 - hyprpaper (for hyprland wallpaper)
-- swayidle (for idle actions)
+- hypridle/swayidle (for idle actions)
 - maim (X screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard - X only)
 - slurp (for selecting an area of desktop)
