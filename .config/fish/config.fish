@@ -70,7 +70,9 @@ alias jctl="journalctl -p 3 -xb"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
 ### RANDOM COLOR SCRIPT ###
-colorscript random
+#colorscript random
+
+pfetch
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
