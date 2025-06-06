@@ -53,6 +53,10 @@ This is my personal setup. If you want to use it you can of course do that but I
 - swaybg (for sway wallpaper)
 - hyprpaper (for hyprland wallpaper)
 - hypridle/swayidle (for idle actions)
+- hyprpolkitagent (enabled via systemd)
+- uwsm (for hyprland)
+- xdg-desktop-portal-hyprland
+- xdg-desktop-portal-gtk
 - maim (X screenshot utility)
 - xclip (for copying selected screenshot area to the clipboard - X only)
 - slurp (for selecting an area of desktop)
