@@ -2,12 +2,12 @@
 
 static=static-$1
 link=$1
-volatile=/dev/shm/firefox-$1-$USER
+volatile=/dev/shm/floorp-$1-$USER
 
 IFS=
 set -efu
 
-cd ~/.mozilla/firefox
+cd ~/.floorp
 
 if [ ! -r $volatile ]; then
 	mkdir -m0700 $volatile

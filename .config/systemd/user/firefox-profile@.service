@@ -1,5 +1,5 @@
 [Unit]
-Description=Firefox profile memory cache
+Description=Floorp profile memory cache
 
 [Install]
 WantedBy=default.target
