@@ -33,4 +33,5 @@ require('packer').startup(function()
     use 'numToStr/Comment.nvim'                                     -- Comment engine(bulk line commenting etc.)
     use 'theRealCarneiro/hyprland-vim-syntax'                       -- Hyprland config syntax
     use 'github/copilot.vim'                                        -- Github copilot
+    use 'pysan3/autosession.nvim'
 end)
