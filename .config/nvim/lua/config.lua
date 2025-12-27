@@ -275,16 +275,7 @@ require'trouble'.setup{
 
 -------------------------------------- TREESITTER --------------------------------------
 
-require'nvim-treesitter.configs'.setup {
-    -- A list of parser names, or 'all'
-    ensure_installed = { 'c', 'cpp', 'c_sharp', 'cmake', 'diff', 'fish', 'gitignore', 'json', 'python', 'regex', 'bash', 'lua', 'vim', 'query', 'haskell', 'markdown', 'sql', 'json' },
-    highlight = {
-        enable = true,
-    },
-    indent = {
-        enable = false,
-    }
-}
+require('nvim-treesitter').install({'c', 'cpp', 'c_sharp', 'cmake', 'diff', 'fish', 'gitignore', 'json', 'python', 'regex', 'bash', 'lua', 'vim', 'query', 'haskell', 'markdown', 'sql', 'json'})
 
 -------------------------------------- COMMENT --------------------------------------
 
@@ -513,6 +504,17 @@ end
 require'nvim-dap-virtual-text'.setup({})
 
 vim.lsp.enable('basedpyright')
+vim.lsp.config('basedpyright', {
+    settings = {
+        basedpyright = {
+            analysis = {
+                diagnosticSeverityOverrides = {
+                    reportUnusedCallResult = "none",
+                },
+            },
+        },
+    },
+})
 
 require("autosession").setup({
   msg = nil, -- string: printed when startup is completed

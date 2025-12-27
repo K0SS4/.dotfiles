@@ -6,6 +6,14 @@ local exec = vim.api.nvim_exec
 local autocmd = vim.api.nvim_create_autocmd
 local autogroup = vim.api.nvim_create_augroup
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'cpp', 'c', 'lua', 'py' },
+  callback = function() 
+      vim.treesitter.start() 
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+
 -- Bash language server
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'sh',

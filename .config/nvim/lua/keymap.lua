@@ -76,3 +76,8 @@ keymap('n', '<leader>fk', '<cmd>lua require("telescope.builtin").keymaps()<CR>',
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', {silent = true, noremap = true, desc = 'Live grep'})
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>', {silent = true, noremap = true, desc = 'Search buffers'})
 keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>', {silent = true, noremap = true, desc = 'Search help tags'})
+
+--------------------------------------- COPILOT ---------------------------------------
+keymap('i', '<S-Tab>', 'copilot#Accept()', {silent = true, noremap = true, expr = true, desc = 'Accept copilot suggestion'})
+--- Unbind default copilot tab mapping
+vim.g.copilot_no_tab_map = true
