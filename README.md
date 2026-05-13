@@ -40,7 +40,6 @@ This is my personal setup. If you want to use it you can of course do that but I
             - zsh-syntax-highlighting (for syntax highlighting when you're typing in the terminal)
 - neovim (my text editor)
     - packer (plugins manager for neovim)
-    - lua (for the whole config)
     - clangd (c++ language server)
     - lua-language-server
     - bash-language-server
@@ -51,6 +50,7 @@ This is my personal setup. If you want to use it you can of course do that but I
     - nerdfonts (icons needed for barbar)
 - nitrogen (for i3 wallpaper)
 - swaybg (for sway wallpaper)
+- lua (for the neovim and Hyprland configs)
 - hyprpaper (for hyprland wallpaper)
 - hypridle/swayidle (for idle actions)
 - hyprpolkitagent (enabled via systemd)
