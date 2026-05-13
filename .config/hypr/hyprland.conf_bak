@@ -81,7 +81,6 @@ animations {
 
 dwindle {
     # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # you probably want this
 }
 
@@ -101,7 +100,6 @@ bind = $mainMod, E, exec, uwsm app -- thunar
 bind = $mainMod, F, togglefloating,
 bind = $mainMod SHIFT, RETURN, exec, uwsm app -- wofi -a -S drun -p Run: -i -I
 bind = $mainMod, P, pseudo, # dwindle
-bind = $mainMod SHIFT, S, togglesplit, # dwindle
 bind = $mainMod, SPACE, fullscreen
 
 bind = $mainMod, C, exec, uwsm app -- cliphist list | wofi -a -S dmenu -p Search:  | cliphist decode | wl-copy
