@@ -12,17 +12,20 @@ hl.monitor({
   scale = 1,
 })
 
-hl.exec_cmd("uwsm app -- ~/.config/waybar/scripts/start.sh")
+hl.on("hyprland.start", function ()
+    hl.exec_cmd("uwsm app -- waybar -c ~/.config/waybar/config-hypr-1 -s ~/.config/waybar/style-hypr.css")
+    hl.exec_cmd("uwsm app -- waybar -c ~/.config/waybar/config-hypr-2 -s ~/.config/waybar/style-hypr.css")
 
-hl.exec_cmd("uwsm app -- nm-applet --indicator")
-hl.exec_cmd("uwsm app -- swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css")
+    hl.exec_cmd("uwsm app -- nm-applet --indicator")
+    hl.exec_cmd("uwsm app -- swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css")
 
-hl.exec_cmd("uwsm app -- hyprpaper")
-hl.exec_cmd("uwsm app -- poweralertd")
-hl.exec_cmd("uwsm app -- hypridle")
+    hl.exec_cmd("uwsm app -- hyprpaper")
+    hl.exec_cmd("uwsm app -- poweralertd")
+    hl.exec_cmd("uwsm app -- hypridle")
 
-hl.exec_cmd("uwsm app -- wl-paste --type text --watch cliphist store")  -- Stores only text data
-hl.exec_cmd("uwsm app -- wl-paste --type image --watch cliphist store") -- Stores only image data
+    hl.exec_cmd("uwsm app -- wl-paste --type text --watch cliphist store")  -- Stores only text data
+    hl.exec_cmd("uwsm app -- wl-paste --type image --watch cliphist store") -- Stores only image data
+end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
