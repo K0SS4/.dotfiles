@@ -135,7 +135,7 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 
 -- Core Binds
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("uwsm app -- alacritty"))
-hl.bind(mainMod .. " + W", hl.dsp.window.kill({ window = 'activewindow' }))
+hl.bind(mainMod .. " + W", hl.dsp.window.close({ window = 'activewindow' }))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- thunar"))
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
